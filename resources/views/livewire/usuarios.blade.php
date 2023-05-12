@@ -20,7 +20,6 @@
             <th scope="col">Telefono</th>
             <th scope="col">Email</th>
             <th scope="col">Residencia</th>
-            <th scope="col">Carrera</th>
             <th scope="col">Editar</th>
             <th scope="col">Eliminar</th>
           </tr>
@@ -34,14 +33,12 @@
             <td>{{$user->name}}</td>
             <td>{{$user->cuenta}}</td>
             <td>{{$user->tel}}</td>
-            <td>{{$user->email}}</td> 
-            <td></td>  
-            {{-- <td>{{$carrera->carrera}}</td>    --}}
+            <td>{{$user->email}}</td>  
             <td>{{$user->residencia}}</td>    
             <td>
               <a class="btn btn-outline-warning mt-1 ml-2" style="ali" 
-              {{-- href="{{route("hp.update", ['id' => $user->id])}}">  --}}
-              >Editar</a>
+              href="{{route("usuario.update", ['id' => $user->id])}}"> 
+              Editar</a>
             </td>
           
             <td>  
@@ -61,7 +58,7 @@
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-outline-primary"
-                     {{-- wire:click="delete({{$usuario ->id}})" --}}
+                     wire:click="delete({{$user->id}})"
                      >Eliminar</button>
                   </div>
                 </div>

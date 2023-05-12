@@ -21,8 +21,9 @@ class userSeeder extends Seeder
             'tel' => '00000000',
             'email' => 'admin@admin.com',
             'password' => bcrypt('password')
-        ])
+        ]);
         // ->assignRole('Admin')
-        ;
-    }
+        
+}
+
 }

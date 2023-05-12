@@ -55,20 +55,6 @@ class UsuariosCreate extends Component
     ];
 
     
-    public function mount($id=null){
-        if ($id != null) {
-            $this->edit = true;
-
-            $this->User = User::find($id);
-
-            $this->nombre= $this->User->name;
-            $this->cuenta= $this->User->cuenta;
-            $this->telefono=$this->User->tel;
-            $this->email=$this->User->email;
-            $this->residencia=$this->User->residencia;
-        }
-
-    }
 
     public function render()
     {
@@ -80,30 +66,28 @@ class UsuariosCreate extends Component
         ->section('content');
     }
 
-    public function guardar(){
+    public function guardar_user(){
 
         $this->validate();
 
-        if ($this->edit == true) {
-
-            $this->User->name = $this->nombre;
+         $this->User->name = $this->nombre;
             $this->User->cuenta = $this->cuenta;
             $this->User->tel = $this->telefono;
             $this->User->email = $this->email;
             $this->User->residencia = $this->residencia;
 
             $this->User->save();
+   
 
-        }else {
-            $Practicante = User::create([
+           
+            $user = User::create([
                 'name' => $this->nombre,
                 'cuenta' => $this->cuenta,
                 'tel' => $this->telefono,
                 'email' => $this->email,
                 'residencia' => $this->residencia,
             ]);
-        }
-
+        
         return redirect()->route('usuario.index');
     }
 

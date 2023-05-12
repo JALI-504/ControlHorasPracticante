@@ -5,13 +5,16 @@
             <form>
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="name" class="form-control @error("nombre") is-invalid @enderror" id="nombre" wire:model.lazy="nombre">
+                    <input type="name" class="form-control @error("nombre") is-invalid @enderror" id="nombre" wire:model.lazy="nombre" style="width: 50vh">
 
                     @error("nombre")
                       <small class="text-danger">{{$message}}</small>
                     @enderror
 
                   </div>
+                  <div>
+                </div>
+                
 
                 <div class="form-group">
                     <label for="cuenta">No. Cuenta</label>
@@ -55,18 +58,11 @@
 
                   </div>
 
-                  {{-- <form wire:submit.prevent="save">
-                    <input type="file" wire:model="photo">
                  
-                    @error('photo') <span class="error">{{ $message }}</span> @enderror
-                 
-                    <button type="submit">Save Photo</button>
-                </form>
-                 --}}
                 <div class="d-flex justify-content-center align-items-center" role="toolbar" aria-label="Toolbar with button groups" style="height: 20vh;">
                   
                   <div class="btn-group me-2" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-success align-self-center" style="align-content  :center " wire:click="guardar">{{$this->edit == true ? "Actualizar" : "Guardar"}}</button>
+                    <button type="button" class="btn btn-success align-self-center" style="align-content  :center " wire:click="guardar_user()">{{$this->edit == true ? "Actualizar" : "Guardar"}}</button>
                   </div>
                   <div class="btn-group me-2" role="group" aria-label="Second group">
                     <a type="button" class="btn btn-danger align-self-center" style="align-content:center" href="{{route('usuario.index')}}">Cancelar </a>

@@ -24,6 +24,6 @@ class Usuarios extends Component
         
         $user->delete();
 
-        return redirect()->route('index');
+        return redirect()->route('usuario.index');
     }
 }

@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::prefix('usuarios')->group(function () {
-    Route::get('index', Usuarios::class)->name('index')->middleware('auth');
+    Route::get('index', Usuarios::class)->name('usuario.index')->middleware('auth');
     // Route::get('create', PracticanteCreate::class)->name('hp.create')->middleware('auth');
     // Route::get('update/{id}', PracticanteCreate::class)->name('hp.update')->middleware('auth');
 });

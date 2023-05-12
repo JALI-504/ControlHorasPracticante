@@ -313,7 +313,7 @@ return [
         ],
         [
             'text' => 'Usuarios',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/usuarios/index',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

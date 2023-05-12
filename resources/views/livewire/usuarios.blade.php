@@ -3,7 +3,7 @@
       <div class=" me-4">
         <h1>PRACTICANTES</h1>
       </div>
-      <div>
+      <!-- <div>
         <a class="btn btn-outline-success mt-2 ml-4" 
          {{-- href="{{route('hp.create')}}" --}}
          >Crear</a>
@@ -37,7 +37,7 @@
               <button class="btn btn-outline-danger mt-1 ml-2" style="ali" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
                 
               <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -61,7 +61,7 @@
           </tr>
           {{-- @endforeach --}}
         </tbody>
-    </table>
-    {{-- <livewire:user-table /> --}}
+    </table> -->
+    <!-- {{-- <livewire:user-table /> --}} --> 
   </div>
   

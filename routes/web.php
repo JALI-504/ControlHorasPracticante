@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Usuarios;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -13,12 +14,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'auth'], function () {
-
-
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-});
 
 Auth::routes(['login' => true]);
 
 
+
+Route::group(['middleware' => 'auth'], function () {
+
+
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+});
+
+Route::prefix('usuarios')->group(function () {
+    Route::get('index', Usuarios::class)->name('index')->middleware('auth');
+    // Route::get('create', PracticanteCreate::class)->name('hp.create')->middleware('auth');
+    // Route::get('update/{id}', PracticanteCreate::class)->name('hp.update')->middleware('auth');
+});

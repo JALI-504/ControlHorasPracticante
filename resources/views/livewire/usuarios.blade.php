@@ -4,9 +4,9 @@
         <h1>PRACTICANTES</h1>
       </div>
       <div>
-        <a class="btn btn-outline-success mt-2 ml-4
-          " 
-         href="{{route('hp.create')}}">Crear</a>
+        <a class="btn btn-outline-success mt-2 ml-4" 
+         {{-- href="{{route('hp.create')}}" --}}
+         >Crear</a>
       </div>
     </div>
       
@@ -24,16 +24,13 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($practicantes as $practicante)
+          {{-- @foreach ($usuarios as $usuario) --}}
           <tr>
-            <th scope="row">{{ $loop->index + 1 }}</th>
-            <td>{{$practicante->nombre}}</td>
-            <td>{{$practicante->tel}}</td>
-            <td>{{$practicante->email}}</td>   
-            <td>{{$practicante->residencia}}</td>   
-            <td>{{$practicante->carrera}}</td>   
+            {{--      --}}
             <td>
-              <a class="btn btn-outline-warning mt-1 ml-2" style="ali" href="{{route("hp.update", ['id' => $practicante->id])}}">Editar</a>
+              <a class="btn btn-outline-warning mt-1 ml-2" style="ali" 
+              {{-- href="{{route("hp.update", ['id' => $practicante->id])}}" --}}
+              >Editar</a>
             </td>
             <td>
               
@@ -52,7 +49,9 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-outline-primary" wire:click="delete({{$practicante->id}})">Eliminar</button>
+                    <button type="button" class="btn btn-outline-primary"
+                     {{-- wire:click="delete({{$usuario ->id}})" --}}
+                     >Eliminar</button>
                   </div>
                 </div>
               </div>
@@ -60,9 +59,9 @@
   
             </td>
           </tr>
-          @endforeach
+          {{-- @endforeach --}}
         </tbody>
     </table>
-    <livewire:user-table />
+    {{-- <livewire:user-table /> --}}
   </div>
   

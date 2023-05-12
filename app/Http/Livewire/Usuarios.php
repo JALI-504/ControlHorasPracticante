@@ -12,7 +12,7 @@ class Usuarios extends Component
         return view('livewire.usuarios', [
             'users' => User::all()
         ])
-        ->extends('layouts.layout')
+        ->extends('adminlte::page')
         ->section('content');
     }
 

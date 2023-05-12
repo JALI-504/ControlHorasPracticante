@@ -1,3 +1,4 @@
+
 <div>
     <div class="d-flex">
       <div class=" me-4">
@@ -5,16 +6,17 @@
       </div>
       <div>
         <a class="btn btn-outline-success mt-2 ml-4" 
-         {{-- href="{{route('hp.create')}}" --}}
+         href="{{route('usuario.create')}}"
          >Crear</a>
       </div>
     </div>
       
-    <table class="table table-dark table-sm align-middle table-hover" style="align-items: center w-50">
+    <table class="table table-sm align-middle table-hover" style="align-items: center w-50">
         <thead class=" thead-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
+            <th scope="col">cuenta</th>
             <th scope="col">Telefono</th>
             <th scope="col">Email</th>
             <th scope="col">Residencia</th>
@@ -29,11 +31,13 @@
            
             
             <th scope="row">{{ $loop->index + 1 }}</th>
-            <td>{{$user->nombre}}</td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->cuenta}}</td>
             <td>{{$user->tel}}</td>
-            <td>{{$user->email}}</td>   
-            <td>{{$user->residencia}}</td>   
-            <td>{{$user->carrera}}</td>   
+            <td>{{$user->email}}</td> 
+            <td></td>  
+            {{-- <td>{{$carrera->carrera}}</td>    --}}
+            <td>{{$user->residencia}}</td>    
             <td>
               <a class="btn btn-outline-warning mt-1 ml-2" style="ali" 
               {{-- href="{{route("hp.update", ['id' => $user->id])}}">  --}}

@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Control de Horas para Practicantes',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,8 +63,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Control de Horas</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'url'  => '/',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -253,7 +254,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -313,7 +314,7 @@ return [
         ],
         [
             'text' => 'Usuarios',
-            'url'  => 'admin/usuarios/index',
+            'url'  => 'usuarios/index',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

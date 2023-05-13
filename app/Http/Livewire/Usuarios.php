@@ -20,10 +20,11 @@ class Usuarios extends Component
         
         // dd($id);
 
-        $user = User::find($id);
+        $User = User::find($id);
         
-        $user->delete();
+        $User->delete();
 
         return redirect()->route('usuario.index');
     }
+    
 }

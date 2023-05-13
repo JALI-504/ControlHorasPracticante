@@ -43,7 +43,8 @@
           
             <td>  
               <button class="btn btn-outline-danger mt-1 ml-2"
-               style="ali" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
+               style="ali" data-bs-toggle="modal" data-bs-target="#exampleModal"
+               wire:click='delete({{$user->id}})'>Eliminar</button>
             </td>
   
             </td>

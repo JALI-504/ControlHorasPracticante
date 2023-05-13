@@ -18,7 +18,7 @@ class Usuarios extends Component
 
     public function delete($id){
         
-        // dd($id);
+        
 
         $User = User::find($id);
         

@@ -36,7 +36,9 @@
             <td>{{$user->residencia}}</td>    
             <td>
               <a class="btn btn-outline-warning mt-1 ml-2" style="ali" 
-              href="{{route("usuario.update", ['id' => $user->id])}}">Editar</a>
+              href="{{route("usuario.update", ['id' => $user->id])}}"> 
+
+              Editar</a>
             </td>
           
             <td>  

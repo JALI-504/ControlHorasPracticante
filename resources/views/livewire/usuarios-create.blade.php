@@ -57,10 +57,14 @@
                 
                 <div class="d-flex justify-content-center align-items-center" role="toolbar" aria-label="Toolbar with button groups" style="height: 20vh;">
                   
-                  <div class="btn-group me-2" role="group" aria-label="First group">
+                
+                    <button type="button" class="btn btn-success" 
+                    wire:click="guardar_usuario()">Guardar</button>
+                
+                  {{-- <div class="btn-group me-2" role="group" aria-label="First group">
                     <button type="button" class="btn btn-success align-self-center" style="align-content  :center "
-                    wire:click="guardar">{{$this->edit == true ? "Actualizar" : "Guardar"}}</button>
-                  </div>
+                    wire:click.prevent="guardar">{{$this->edit == true ? "Actualizar" : "Guardar"}}</button>
+                  </div> --}}
                   <div class="btn-group me-2" role="group" aria-label="Second group">
                     <a type="button" class="btn btn-danger align-self-center" style="align-content:center"
                      href="{{route('usuario.index')}}">Cancelar </a>

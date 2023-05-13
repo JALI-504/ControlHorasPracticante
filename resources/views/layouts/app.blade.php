@@ -16,7 +16,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link href="{{ mix('css/app.css', 'core/public') }}" rel="preload" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+<script src="{{ mix('js/app.js', 'core/public') }}" defer></script>
     
 
 

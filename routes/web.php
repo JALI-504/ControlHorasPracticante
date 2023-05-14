@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Inicio;
 use App\Http\Livewire\Usuarios;
 use App\Http\Livewire\UsuariosCreate;
-use App\Http\Livewire\UsuariosUpdate;
+// use App\Http\Livewire\UsuariosUpdate;
 
 Auth::routes(['login' => true]);
 
@@ -23,8 +23,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('create', UsuariosCreate::class)->name('usuario.create')->middleware('auth');
         Route::get('update/{id}', UsuariosCreate::class)->name('usuario.update')->middleware('auth');
     });
-
-
 
 });
 

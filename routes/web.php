@@ -23,7 +23,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('index', Usuarios::class)->name('usuario.index')->middleware('auth');
         Route::get('create', UsuariosCreate::class)->name('usuario.create')->middleware('auth');
         Route::get('update/{id}', UsuariosCreate::class)->name('usuario.update')->middleware('auth');
-        Route::get('asignar', AsignarRoles::class)->name('usuario.roles')->middleware('auth');
+        Route::get('asignar/{id}', AsignarRoles::class)->name('usuario.roles')->middleware('auth');
+        //Route::get('asignar/{id}', AsignarRoles::class)->name('usuario.roles')->middleware('auth');
 
     });
 

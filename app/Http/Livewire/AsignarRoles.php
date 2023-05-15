@@ -10,7 +10,9 @@ use Spatie\Permission\Models\Role;
 
 class AsignarRoles extends Component
 {
-    public $role;
+    public $user;
+    public array $role_ids;
+    public $user_id;
 
     public $edit = false;
 
@@ -28,13 +30,13 @@ class AsignarRoles extends Component
     ];
 
     public function mount($id = null)
-    {
+    {      
+        // dd($id);
+
         if ($id != null) {
-            $this->edit = true;
+            $this->user = User::find($id);
 
-            $this->role = Role::find($id);
-
-            $this->name = $this->role->name;
+            $this->role_ids = $this->user->roles->pluck('id')->toArray();
         }
     }
 
@@ -52,13 +54,12 @@ class AsignarRoles extends Component
             ->section('content');
     }
 
-    public function actualizar()
+    public function asignar()
     {
         $this->validate();
 
-        $role = Role::findOrFail($this->id_role);
 
-        $role->name = $this->name;
+        $this->role->name = $this->name;
 
         $role->save();
 

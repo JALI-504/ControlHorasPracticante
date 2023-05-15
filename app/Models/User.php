@@ -66,7 +66,5 @@ class User extends Authenticatable
     // public function carrera(){
     //     return $this->belongsTo(Carrera::class, 'carrera_id', 'id');
     // }
-    public function role(){
-        return $this->belongsTo(Role::class, 'rol_id', 'id');
-    }
+    
 }

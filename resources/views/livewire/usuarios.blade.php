@@ -15,12 +15,14 @@
         <thead class=" thead-dark">
           <tr>
             <th scope="col">#</th>
+            <th scope="col">id</th>
             <th scope="col">Nombre</th>
             <th scope="col">cuenta</th>
             <th scope="col">Telefono</th>
             <th scope="col">Email</th>
             <th scope="col">Residencia</th>
             <th scope="col">Editar</th>
+            <th scope="col">Roles</th>
             <th scope="col">Eliminar</th>
           </tr>
         </thead>
@@ -29,6 +31,7 @@
           <tr>
       
             <th scope="row">{{ $loop->index + 1 }}</th>
+            <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
             <td>{{$user->cuenta}}</td>
             <td>{{$user->tel}}</td>
@@ -39,6 +42,13 @@
               href="{{route("usuario.update", ['id' => $user->id])}}"> 
 
               Editar</a>
+            </td>
+
+            <td>
+              <a class="btn btn-outline-primary mt-1 ml-2" style="ali" 
+                href="{{route('usuario.roles', ['id' => $user->id])}}"> 
+                Roles
+              </a>
             </td>
           
             <td>  

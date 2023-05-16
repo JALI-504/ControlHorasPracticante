@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\AsignarRoles;
 use App\Http\Livewire\Centros;
+use App\Http\Livewire\CentrosCreate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Inicio;
@@ -36,8 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::prefix('centros')->group(function () {
         Route::get('index', Centros::class)->name('centro.index')->middleware('auth');
-        // Route::get('create', CentrosCreate::class)->name('hp.centro_create')->middleware('auth');
-        // Route::get('update/{id}', CentrosCreate::class)->name('hp.centro_update')->middleware('auth');
+        Route::get('create', CentrosCreate::class)->name('centro.create')->middleware('auth');
+        Route::get('update/{id}', CentrosCreate::class)->name('centro.update')->middleware('auth');
     });
 
 });

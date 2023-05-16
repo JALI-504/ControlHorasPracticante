@@ -4,20 +4,18 @@
       <div class=" me-4">
         <h1>Centro Educativo</h1>
       </div>
-     {{-- @can('admin.usuarios.usuario.create')
      <div>
       <a class="btn btn-outline-success mt-2 ml-4" 
-      href="{{route('usuario.create')}}"
+      href="{{route('centro.create')}}"
        >Crear</a>
     </div>
-     @endcan --}}
     </div>
       
     <table class="table table-sm align-middle table-hover" style="align-items: center w-50">
         <thead class=" thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Centro</th>
+            <th scope="col" style="width: 60%">Centro</th>
             <th scope="col">Editar</th>
             <th scope="col">Eliminar</th>
           </tr>
@@ -30,7 +28,7 @@
             <td>{{$centro->nombre_centro}}</td>  
             <td>
               <a class="btn btn-outline-warning mt-1 ml-2" style="ali" 
-              {{-- href="{{route("centro.update", ['id' => $centro->id])}}"  --}}
+              href="{{route("centro.update", ['id' => $centro->id])}}"
               >Editar</a>
             </td>
           

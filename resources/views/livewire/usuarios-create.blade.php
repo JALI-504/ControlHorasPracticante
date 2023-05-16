@@ -66,6 +66,7 @@
           <div style="margin-left: 30px; margin-top: 20px">
             <a type="button" class="btn btn-outline-danger" style="width: 150px" href="{{route('inicio')}}">Cancelar</a>
           </div>
+        </div>
 
       </form>
     </div>

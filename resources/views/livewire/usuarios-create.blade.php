@@ -56,9 +56,8 @@
                   </div>
                 
                 <div class="d-flex justify-content-center align-items-center" role="toolbar" aria-label="Toolbar with button groups" style="height: 20vh;">
-                  
                 
-                    {{-- <button type="button" class="btn btn-success" 
+              {{-- <button type="button" class="btn btn-success" 
                     wire:click="guardar_usuario()">Guardar</button> --}}
                 
                   <div class="btn-group me-2" role="group" aria-label="First group">

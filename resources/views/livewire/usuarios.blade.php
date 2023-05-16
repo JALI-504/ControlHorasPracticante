@@ -22,7 +22,9 @@
             <th scope="col">Email</th>
             <th scope="col">Residencia</th>
             <th scope="col">Editar</th>
+            @can('admin.usuarios.usuario.roles')
             <th scope="col">Roles</th>
+            @endcan
             <th scope="col">Eliminar</th>
           </tr>
         </thead>
@@ -44,12 +46,14 @@
               Editar</a>
             </td>
 
+            @can('admin.usuarios.usuario.roles')
             <td>
               <a class="btn btn-outline-primary mt-1 ml-2" style="ali" 
                 href="{{route('usuario.roles', ['id' => $user->id])}}"> 
                 Roles
               </a>
             </td>
+            @endcan
           
             <td>  
               <button class="btn btn-outline-danger mt-1 ml-2"

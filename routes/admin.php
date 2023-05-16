@@ -1,36 +1,36 @@
 <?php
 
-// use App\Http\Livewire\Inicio;
-// use App\Http\Livewire\Usuarios;
-// use App\Http\Livewire\UsuariosCreate;
-// use Illuminate\Support\Facades\Auth;
-// use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Inicio;
+use App\Http\Livewire\Usuarios;
+use App\Http\Livewire\UsuariosCreate;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
-// /*
-// |--------------------------------------------------------------------------
-// | Web Routes
-// |--------------------------------------------------------------------------
-// |
-// | Here is where you can register web routes for your application. These
-// | routes are loaded by the RouteServiceProvider within a group which
-// | contains the "web" middleware group. Now create something great!
-// |
-// */
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
-// Auth::routes(['login' => true]);
+Auth::routes(['login' => true]);
 
-// Auth::routes(['register' => true]);
+Auth::routes(['register' => true]);
 
-// Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
 
 
-//     // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+    // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
-//     Route::get('/', Inicio::class)->name('inicio')->middleware('auth');
+    Route::get('/', Inicio::class)->name('inicio')->middleware('auth');
 
-//     Route::prefix('usuarios')->group(function () {
-//         Route::get('index', Usuarios::class)->name('usuario.index')->middleware('auth');
-//         Route::get('create', UsuariosCreate::class)->name('usuario.create')->middleware('auth');
-//         Route::get('update/{id}', UsuariosCreate::class)->name('usuario.update')->middleware('auth');
-//     });
-// });
+    Route::prefix('usuarios')->group(function () {
+        Route::get('index', Usuarios::class)->name('usuario.index')->middleware('auth');
+        Route::get('create', UsuariosCreate::class)->name('usuario.create')->middleware('auth');
+        Route::get('update/{id}', UsuariosCreate::class)->name('usuario.update')->middleware('auth');
+    });
+});

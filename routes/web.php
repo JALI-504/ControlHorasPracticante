@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\AsignarRoles;
 use App\Http\Livewire\Carreras;
+use App\Http\Livewire\CarrerasCraete;
 use App\Http\Livewire\Centros;
 use App\Http\Livewire\CentrosCreate;
 use Illuminate\Support\Facades\Route;
@@ -44,8 +45,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::prefix('carreras')->group(function () {
         Route::get('index', Carreras::class)->name('carrera.index')->middleware('auth');
-        // Route::get('create', CentrosCreate::class)->name('carrera.create')->middleware('auth');
-        // Route::get('update/{id}', CentrosCreate::class)->name('carrera.update')->middleware('auth');
+        Route::get('create', CarrerasCraete::class)->name('carrera.create')->middleware('auth');
+        Route::get('update/{id}', CarrerasCraete::class)->name('carrera.update')->middleware('auth');
     });
 
 });

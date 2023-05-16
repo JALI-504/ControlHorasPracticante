@@ -6,7 +6,7 @@
       </div>
      <div>
       <a class="btn btn-outline-success mt-2 ml-4" 
-      {{-- href="{{route('carrera.create')}}" --}}
+      href="{{route('carrera.create')}}"
        >Crear</a>
     </div>
     </div>
@@ -28,7 +28,7 @@
             <td>{{$carrera->carrera}}</td>  
             <td>
               <a class="btn btn-outline-warning mt-1 ml-2" style="ali" 
-              {{-- href="{{route("carrera.update", ['id' => $carrera->id])}}" --}}
+              href="{{route("carrera.update", ['id' => $carrera->id])}}"
               >Editar</a>
             </td>
           

@@ -319,7 +319,7 @@ return [
         ],
         [
             'text' => 'Centro',
-            'url'  => 'admin/settings',
+            'url'  => 'centros/index',
             'icon' => 'fas fa-fw fa-school',
         ],
         [

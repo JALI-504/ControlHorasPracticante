@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\AsignarRoles;
+use App\Http\Livewire\Centros;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Inicio;
@@ -31,6 +32,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['middleware' => ['role:Admin', 'auth']], function () {
         Route::get('asignar/{id}', AsignarRoles::class)->name('usuario.roles');
+    });
+
+    Route::prefix('centros')->group(function () {
+        Route::get('index', Centros::class)->name('centro.index')->middleware('auth');
+        // Route::get('create', CentrosCreate::class)->name('hp.centro_create')->middleware('auth');
+        // Route::get('update/{id}', CentrosCreate::class)->name('hp.centro_update')->middleware('auth');
     });
 
 });

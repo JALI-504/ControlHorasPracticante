@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Inicio;
 use App\Http\Livewire\Perfil;
+use App\Http\Livewire\SupervisorCreate;
 use App\Http\Livewire\Supervisores;
 use App\Http\Livewire\Usuarios;
 use App\Http\Livewire\UsuariosCreate;
@@ -53,8 +54,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::prefix('supervisores')->group(function () {
         Route::get('index', Supervisores::class)->name('sup.index')->middleware('auth');
-        // Route::get('create', CarrerasCraete::class)->name('sup.create')->middleware('auth');
-        // Route::get('update/{id}', CarrerasCraete::class)->name('sup.update')->middleware('auth');
+        Route::get('create', SupervisorCreate::class)->name('sup.create')->middleware('auth');
+        Route::get('update/{id}', SupervisorCreate::class)->name('sup.update')->middleware('auth');
     });
 
 });

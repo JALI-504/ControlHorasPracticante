@@ -324,7 +324,7 @@ return [
         ],
         [
             'text' => 'Carrera',
-            'url'  => 'admin/settings',
+            'url'  => 'carreras/index',
             'icon' => 'fas fa-fw fa-folder-open',
         ],
         [

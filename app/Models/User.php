@@ -65,9 +65,9 @@ class User extends Authenticatable
         return $this->belongsTo(Carrera::class, 'carrera_id', 'id');
     }
     
-    // public function supervisor(){
-    //     return $this->belongsTo(Supervisor::class, 'supervisor_id', 'id');
-    // }
+    public function supervisor(){
+        return $this->belongsTo(Supervisor::class, 'supervisor_id', 'id');
+    }
 
     public function adminlte_profile_url(){
 

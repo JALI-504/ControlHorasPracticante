@@ -329,7 +329,7 @@ return [
         ],
         [
             'text' => 'Supervisor',
-            'url'  => 'admin/settings',
+            'url'  => 'supervisores/index',
             'icon' => 'fas fa-fw fa-user-shield',
         ],
         [

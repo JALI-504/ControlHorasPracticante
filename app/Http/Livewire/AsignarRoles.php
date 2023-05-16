@@ -20,17 +20,17 @@ class AsignarRoles extends Component
 
 
     protected $rules = [
-        'name' => 'required',
+        'role_ids' => 'required',
 
     ];
 
     protected $messages = [
-        'name.required' => 'Este campo debe deser oblicatorio.',
+        'role_ids.required' => 'Este campo debe deser oblicatorio.',
 
     ];
 
     public function mount($id = null)
-    {      
+    {
         // dd($id);
 
         if ($id != null) {
@@ -58,10 +58,10 @@ class AsignarRoles extends Component
     {
         $this->validate();
 
-
-        $this->role->name = $this->name;
-
-        $role->save();
+        $this->user->syncRoles($this->role_ids);
+       
+       // dd($this->user);
+        $this->user->save();
 
         return redirect()->route('usuario.index');
     }

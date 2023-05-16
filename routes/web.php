@@ -5,6 +5,7 @@ use App\Http\Livewire\Carreras;
 use App\Http\Livewire\CarrerasCraete;
 use App\Http\Livewire\Centros;
 use App\Http\Livewire\CentrosCreate;
+use App\Http\Livewire\Horas;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Inicio;
@@ -56,6 +57,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('index', Supervisores::class)->name('sup.index')->middleware('auth');
         Route::get('create', SupervisorCreate::class)->name('sup.create')->middleware('auth');
         Route::get('update/{id}', SupervisorCreate::class)->name('sup.update')->middleware('auth');
+    });
+
+    Route::prefix('horas')->group(function () {
+        Route::get('index', Horas::class)->name('hora.index')->middleware('auth');
+        // Route::get('create', SupervisorCreate::class)->name('hora.create')->middleware('auth');
+        // Route::get('update/{id}', SupervisorCreate::class)->name('hora.update')->middleware('auth');
     });
 
 });

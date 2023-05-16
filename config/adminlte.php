@@ -334,7 +334,7 @@ return [
         ],
         [
             'text' => 'Hora',
-            'url'  => 'admin/settings',
+            'url'  => 'horas/index',
             'icon' => 'fas fasolid fa-clock',
         ],
         // [

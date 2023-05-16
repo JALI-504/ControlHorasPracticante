@@ -4,6 +4,7 @@ use App\Http\Livewire\AsignarRoles;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Inicio;
+use App\Http\Livewire\Perfil;
 use App\Http\Livewire\Usuarios;
 use App\Http\Livewire\UsuariosCreate;
 // use App\Http\Livewire\UsuariosUpdate;
@@ -22,6 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::prefix('usuarios')->group(function () {
         Route::get('index', Usuarios::class)->name('usuario.index')->middleware('auth');
         Route::get('create', UsuariosCreate::class)->name('usuario.create')->middleware('auth');
+        Route::get('perfil/{id}', Perfil::class)->name('usuario.perfil')->middleware('auth');
         Route::get('update/{id}', UsuariosCreate::class)->name('usuario.update')->middleware('auth');
         //Route::get('asignar/{id}', AsignarRoles::class)->name('usuario.roles')->middleware('auth');
 

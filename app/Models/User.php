@@ -66,5 +66,9 @@ class User extends Authenticatable
     // public function carrera(){
     //     return $this->belongsTo(Carrera::class, 'carrera_id', 'id');
     // }
+
+    public function adminlte_profile_url(){
+
+        return route('usuario.perfil', ['id' => $this->id]);    }
     
 }

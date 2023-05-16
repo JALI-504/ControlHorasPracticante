@@ -4,18 +4,19 @@
       <div class=" me-4">
         <h1>Usuarios</h1>
       </div>
-      <div>
-        <a class="btn btn-outline-success mt-2 ml-4" 
-        href="{{route('usuario.create')}}"
-         >Crear</a>
-      </div>
+     @can('admin.usuarios.usuario.create')
+     <div>
+      <a class="btn btn-outline-success mt-2 ml-4" 
+      href="{{route('usuario.create')}}"
+       >Crear</a>
+    </div>
+     @endcan
     </div>
       
     <table class="table table-sm align-middle table-hover" style="align-items: center w-50">
         <thead class=" thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">id</th>
             <th scope="col">Nombre</th>
             <th scope="col">cuenta</th>
             <th scope="col">Telefono</th>
@@ -33,7 +34,6 @@
           <tr>
       
             <th scope="row">{{ $loop->index + 1 }}</th>
-            <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
             <td>{{$user->cuenta}}</td>
             <td>{{$user->tel}}</td>

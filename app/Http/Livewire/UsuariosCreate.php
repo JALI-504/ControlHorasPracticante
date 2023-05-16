@@ -165,6 +165,6 @@ class UsuariosCreate extends Component
                 'residencia' => $this->residencia,
             ]);
         }
-        return redirect()->route('usuario.index');
+        return redirect()->route('inicio');
     }
 }

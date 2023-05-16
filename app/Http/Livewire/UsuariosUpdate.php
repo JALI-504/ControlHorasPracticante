@@ -8,14 +8,14 @@
 // class UsuariosUpdate extends Component
 // {
 
-//     public $User;
+    // public $User;
 
-//     public $id_user;
-//     public $name;
-//     public $cuenta;
-//     public $tel;
-//     public $email;
-//     public $residencia;
+    // public $id_user;
+    // public $name;
+    // public $cuenta;
+    // public $tel;
+    // public $email;
+    // public $residencia;
 
 //     public function mount($id)
 //     {

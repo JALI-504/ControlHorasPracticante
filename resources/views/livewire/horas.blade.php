@@ -6,7 +6,7 @@
         </div>
         <div>
           <a class="btn btn-outline-success mt-2 ml-4" 
-           {{-- href="{{route('hora.create')}}" --}}
+           href="{{route('hora.create')}}"
            >Crear</a>
         </div>
       </div>
@@ -35,7 +35,7 @@
             <td>{{$hora->hora_total}}</td>   
             <td>
               <a class
-              {{-- ="btn btn-outline-warning mt-1 ml-2" style="ali" href="{{route('hora.update', ['id' => $hora->id])}}" --}}
+              ="btn btn-outline-warning mt-1 ml-2" style="ali" href="{{route('hora.update', ['id' => $hora->id])}}"
               >Editar</a>
             </td>
             <td>

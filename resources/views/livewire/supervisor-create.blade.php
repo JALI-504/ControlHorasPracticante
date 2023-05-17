@@ -39,7 +39,9 @@
 
                 <div class="form-group">
                   <label for="centro">Centro</label>
-                  <select class="form-select" aria-label="Default select example" wire:model="centro">
+                  <br>
+                  <select class="form-select btn btn-outline-secondary" aria-label="Default select example" 
+                  wire:model="centro" style="margin-left: 30px; width: 350px">
                     <option selected>Seleccione</option>
                     @foreach ($centros as $centro)
                       <option value="{{$centro->id}}">{{$centro->nombre_centro}}</option>
@@ -56,7 +58,9 @@
 
                 <div class="form-group">
                   <label for="carrera">Carreras</label>
-                  <select class="form-select" aria-label="Default select example" wire:model="carrera">
+                  <br>
+                  <select class="form-select btn btn-outline-secondary" aria-label="Default select example" 
+                  wire:model="carrera" style="margin-left: 30px; width: 350px">
                     <option selected>Seleccione</option>
                     @foreach ($carreras as $carrera)
                       <option value="{{$carrera->id}}">{{$carrera->carrera}}</option>

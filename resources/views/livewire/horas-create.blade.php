@@ -55,7 +55,7 @@
 
                     <div style="margin-left: 30px; margin-top: 20px">
                         <a type="button" class="btn btn-outline-danger" style="width: 150px"
-                            href="{{route('hora.index')}}">Cancelar</a>
+                            href="{{route('hora.registro')}}">Cancelar</a>
                     </div>
                 </div>
                   

@@ -69,6 +69,10 @@ class User extends Authenticatable
         return $this->belongsTo(Supervisor::class, 'supervisor_id', 'id');
     }
 
+    public function hora(){
+        return $this->belongsTo(Hora::class, 'hora_id', 'id');
+    }
+
     public function adminlte_profile_url(){
 
         return route('usuario.perfil', ['id' => $this->id]);    }

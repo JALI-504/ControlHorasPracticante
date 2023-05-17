@@ -7,6 +7,7 @@ use App\Http\Livewire\Centros;
 use App\Http\Livewire\CentrosCreate;
 use App\Http\Livewire\Horas;
 use App\Http\Livewire\HorasCreate;
+use App\Http\Livewire\HorasRegistro;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Inicio;
@@ -62,6 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::prefix('horas')->group(function () {
         Route::get('index', Horas::class)->name('hora.index')->middleware('auth');
+        Route::get('registro', HorasRegistro::class)->name('hora.registro')->middleware('auth');
         Route::get('create', HorasCreate::class)->name('hora.create')->middleware('auth');
         Route::get('update/{id}', HorasCreate::class)->name('hora.update')->middleware('auth');
     });

@@ -6,7 +6,7 @@
       </div>
      <div>
       <a class="btn btn-outline-success mt-2 ml-4" 
-      href="{{route('carrera.create')}}"
+      href="{{route('sup.create')}}"
        >Crear</a>
     </div>
     </div>
@@ -32,7 +32,7 @@
             <td>{{$supervisor->email}}</td>  
             <td>
               <a class="btn btn-outline-warning mt-1 ml-2" style="ali" 
-              href="{{route("supervisor.update", ['id' => $supervisor->id])}}"
+              href="{{route("sup.update", ['id' => $supervisor->id])}}"
               >Editar</a>
             </td>
             <td>  

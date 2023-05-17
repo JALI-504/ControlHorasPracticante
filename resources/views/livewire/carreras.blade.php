@@ -12,7 +12,7 @@
     </div>
       
     <table class="table table-sm align-middle table-hover" style="align-items: center w-50">
-        <thead class=" thead-dark">
+      <thead class=" thead-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col" style="width: 60%">Carrera</th>

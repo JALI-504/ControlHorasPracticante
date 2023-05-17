@@ -54,7 +54,7 @@ class SupervisorCreate extends Component
 
     public function render()
     {
-        return view('livewire.supervisors-create', [
+        return view('livewire.supervisor-create', [
             'centros' => Centro::all(),
             'carreras' => Carrera::all()
         ])

@@ -16,22 +16,27 @@
             <th scope="col">Facha Actual</th>
             <th scope="col">Total Horas</th>
             <th scope="col">Asignar Horas</th>
+            <th scope="col">Registro</th>
             <th scope="col">Eliminar</th>
           </tr>
         </thead>
         <tbody style="">
-          @foreach ($horas as $hora)
+          @foreach ($users as $user)
           <tr>
             <th scope="row">{{ $loop->index + 1 }}</th>
-            <td>{{ $hora->user->name }}</td>
-            <td></td>
+            <td>{{ $user->name }}</td>
             <td></td>
             <td></td>   
             <td></td>   
             <td>
               <a class
-              ="btn btn-outline-primary mt-1 ml-2" style="ali" href="{{route('hora.registro', ['id' => $hora->id])}}"
+              ="btn btn-outline-primary mt-1 ml-2" style="ali" href="{{route('hora.create', ['id' => $user->id])}}"
               >Asignar</a>
+            </td>
+            <td>
+              <a class
+              ="btn btn-outline-warning mt-1 ml-2" style="ali" href="{{route('hora.registro', ['id' => $user->id])}}"
+              >Registro</a>
             </td>
             <td>
               
@@ -49,7 +54,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-outline-primary" wire:click="delete({{$hora->id}})">Eliminar</button>
+                    <button type="button" class="btn btn-outline-primary" wire:click="delete({{$user->id}})">Eliminar</button>
                   </div>
                 </div>
               </div>

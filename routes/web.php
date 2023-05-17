@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::prefix('horas')->group(function () {
         Route::get('index', Horas::class)->name('hora.index')->middleware('auth');
-        Route::get('registro', HorasRegistro::class)->name('hora.registro')->middleware('auth');
+        Route::get('registro/{id}', HorasRegistro::class)->name('hora.registro')->middleware('auth');
         Route::get('create', HorasCreate::class)->name('hora.create')->middleware('auth');
         Route::get('update/{id}', HorasCreate::class)->name('hora.update')->middleware('auth');
     });

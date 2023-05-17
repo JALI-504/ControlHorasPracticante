@@ -3,30 +3,30 @@
 namespace App\Http\Livewire;
 
 use App\Models\Hora;
+use App\Models\User;
 use Livewire\Component;
 
 class Horas extends Component
 {
+    
     public $total_horas;
     public $total;
+    
     
     public function render()
     {
         return view('livewire.horas', [
-            'horas' => Hora::all()
+            'users' => User::all()
         ])
         ->extends('adminlte::page')
         ->section('content');
     }
 
-    public function delete  ($id){
-        
-        // dd($id);
+    public function delete($id){
 
-        $Hora = Hora::find($id);
+        $User = User::find($id);
         
-        $Hora->delete();
-
+        $User->delete();
         return redirect()->route('hora.index');
     }
 
@@ -35,5 +35,3 @@ class Horas extends Component
         ->sum('total_horas');
     }
 }
-
-

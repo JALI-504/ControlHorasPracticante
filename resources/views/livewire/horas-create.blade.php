@@ -3,7 +3,10 @@
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="align-self-center">
 
-          <h1>Registrar Horas</h1>
+          <h1>Registrar Horas   </h1>
+          @if ($user)
+          <h1>Crear horas para {{ $user->name }}</h1>
+      @endif
             <form>
                 <div class="form-group">
                     <label for="fecha">Fecha</label>
@@ -55,7 +58,8 @@
 
                     <div style="margin-left: 30px; margin-top: 20px">
                         <a type="button" class="btn btn-outline-danger" style="width: 150px"
-                            href="{{route('hora.registro')}}">Cancelar</a>
+                        {{-- href="{{route('hora.registro', ['id' => $user->id])}}" --}}
+                        >Cancelar</a>
                     </div>
                 </div>
                   

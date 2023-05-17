@@ -33,7 +33,7 @@
               <div style="display: flex; gap: 20px;">
                 <div style="margin-left: 30px; margin-top: 20px">
                     <a type="button" class="btn btn-outline-success" style="width: 150px" 
-                    href="{{ route('usuario.update', ['id' => $user->id]) }}">Editar</a>
+                    href="{{ route('hora.index') }}">Editar</a>
                 </div>
 
                 <div style="margin-left: 30px; margin-top: 20px">

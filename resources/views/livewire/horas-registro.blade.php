@@ -7,7 +7,7 @@
         <div style="display: flex; gap: 20px;">
         <div>
             <a class="btn btn-outline-success mt-2 ml-4" 
-             href="{{route('hora.create')}}"
+             {{-- href="{{ route('hora.create', ['id' => $user->id]) }}" --}}
              >Crear</a>
           </div>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Hora;
+use App\Models\User;
 use DateTime;
 use Livewire\Component;
 
@@ -16,6 +17,8 @@ class HorasCreate extends Component
         public $hora_inicio="";
         public $hora_final="";
         public $hora_total="";
+        public $user;
+        
     
         protected $rules = [
             'fecha' => 'required', 
@@ -35,6 +38,10 @@ class HorasCreate extends Component
                 $this->edit = true;
                 
                 $this->Hora = Hora::find($id);
+
+        
+                $this->user = User::find($this->Hora->user_id);
+            
     
                 $this->fecha= $this->Hora->fecha;
                 $this->hora_inicio=$this->Hora->hora_inicio;
@@ -46,7 +53,9 @@ class HorasCreate extends Component
     
         public function render()
         {
-            return view('livewire.horas-create')
+            return view('livewire.horas-create', [
+                'user' => $this->user // Pasar la variable $user a la vista
+            ])
             ->extends('adminlte::page')
             ->section('content');
     
@@ -70,7 +79,8 @@ class HorasCreate extends Component
             
     
             if ($this->edit == true) {
-    
+
+                $this->Hora->user_id = Auth()->user()->id;    
                 $this->Hora->fecha = $this->fecha;
                 $this->Hora->hora_inicio = $this->hora_inicio;
                 $this->Hora->hora_final = $this->hora_final;
@@ -89,10 +99,7 @@ class HorasCreate extends Component
     
             }
     
-            return redirect()->route('hora.index');
+            return redirect()->route('hora.registro');
         }
-    
-        
-    
     }
     

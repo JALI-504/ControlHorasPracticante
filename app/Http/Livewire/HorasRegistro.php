@@ -3,25 +3,36 @@
 namespace App\Http\Livewire;
 
 use App\Models\Hora;
+use App\Models\User;
 use Livewire\Component;
 
 class HorasRegistro extends Component
 {
     public $total_horas;
     public $total;
-    
+    public $user;
+
+    public function mount($id=null){
+        
+        $this->user = User::find($id);
+
+    }
+
     public function render()
     {
         return view('livewire.horas-registro', [
-            'horas' => Hora::all()
+            'horas' => Hora::when($this->user, function ($query, $value) {
+                return $query->where('user_id', $this->user->id);
+            }, function($query){
+                return $query;
+            })->get()
         ])
         ->extends('adminlte::page')
         ->section('content');
     }
 
-    public function delete  ($id){
+    public function delete ($id){
         
-        // dd($id);
 
         $Hora = Hora::find($id);
         

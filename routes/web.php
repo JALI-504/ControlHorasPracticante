@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Livewire\AsignarRoles;
 use App\Http\Livewire\Carreras;
 use App\Http\Livewire\CarrerasCraete;
@@ -19,16 +20,17 @@ use App\Http\Livewire\UsuariosCreate;
 
 // use App\Http\Livewire\UsuariosUpdate;
 
-Auth::routes(['login' => true]);
-
-Auth::routes(['register' => true]);
+Auth::routes();
 
 
 Route::group(['middleware' => 'auth'], function () {
 
+
     // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
     Route::get('/', Inicio::class)->name('inicio')->middleware('auth');
+
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 
     Route::prefix('usuarios')->group(function () {
         Route::get('index', Usuarios::class)->name('usuario.index')->middleware('auth');

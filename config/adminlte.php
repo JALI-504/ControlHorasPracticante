@@ -118,6 +118,7 @@ return [
         ],
     ],
 
+
     /*
     |--------------------------------------------------------------------------
     | User Menu
@@ -257,7 +258,10 @@ return [
     'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
-    'register_url' => 'register',
+    'register_url' => 
+    'register/register'
+   
+    ,
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => false,
@@ -311,6 +315,11 @@ return [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
+        ],
+        [
+            'text' => 'Registrar Usuarios',
+            'url'  => 'register/register',
+            'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Usuarios',

@@ -33,23 +33,25 @@ class HorasCreate extends Component
         ];
     
         
-        public function mount($id=null){
-            if ($id != null) {
-                $this->edit = true;
+         public function mount($id=null){
+             if ($id != null) {
+                 $this->edit = true;
                 
-                $this->Hora = Hora::find($id);
+                 $this->Hora = Hora::find($id);
 
         
-                $this->user = User::find($this->Hora->user_id);
+                 $this->user = User::find($this->Hora->user_id);
             
     
-                $this->fecha= $this->Hora->fecha;
-                $this->hora_inicio=$this->Hora->hora_inicio;
-                $this->hora_final=$this->Hora->hora_final;
-                $this->hora_total=$this->Hora->hora_total;
-            }
-    
-        }
+                 $this->fecha= $this->Hora->fecha;
+                 $this->hora_inicio=$this->Hora->hora_inicio;
+                 $this->hora_final=$this->Hora->hora_final;
+                 $this->hora_total=$this->Hora->hora_total;
+             }
+       
+         }
+
+
     
         public function render()
         {
@@ -99,7 +101,7 @@ class HorasCreate extends Component
     
             }
     
-            return redirect()->route('hora.registro');
+            return redirect()->route('hora.index');
         }
     }
     

@@ -4,13 +4,13 @@
       <div class=" me-4">
         <h1>Usuarios</h1>
       </div>
-     @can('admin.usuarios.usuario.create')
+     {{-- @can('admin.usuarios.usuario.create')
      <div>
       <a class="btn btn-outline-success mt-2 ml-4" 
       href="{{route('usuario.create')}}"
        >Crear</a>
     </div>
-     @endcan
+     @endcan --}}
     </div>
       
     <table class="table table-sm align-middle table-hover" style="align-items: center w-50">
@@ -25,12 +25,13 @@
             <th scope="col">Editar</th>
             @can('admin.usuarios.usuario.roles')
             <th scope="col">Roles</th>
-            @endcan
-            <th scope="col">Eliminar</th>
+           <th scope="col">Eliminar</th>
+           @endcan
           </tr>
         </thead>
         <tbody class="table">
           @foreach ($users as $user)
+          
           <tr>
       
             <th scope="row">{{ $loop->index + 1 }}</th>
@@ -53,15 +54,35 @@
                 Roles
               </a>
             </td>
-            @endcan
+            
           
             <td>  
               <button class="btn btn-outline-danger mt-1 ml-2"
                style="ali" data-bs-toggle="modal" data-bs-target="#exampleModal"
                wire:click='delete({{$user->id}})'>Eliminar</button>
+
+               <!-- Modal -->
+              <div class="modal fade" id="exampleModal{{$user->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Confirmar eliminación</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      ¿Estás seguro de que deseas eliminar este usuario?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-danger" wire:click="delete({{$user->id}})">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               
             </td>
-  
-            </td>
+          @endcan
+            
           </tr>
           @endforeach
         </tbody>

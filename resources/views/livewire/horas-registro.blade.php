@@ -4,10 +4,12 @@
         <div class=" me-4">
           <h1>REGISTRO DE HORAS:</h1>
         </div>
+
+        
         <div style="display: flex; gap: 20px;">
         <div>
             <a class="btn btn-outline-success mt-2 ml-4" 
-             {{-- href="{{ route('hora.create', ['id' => $user->id]) }}" --}}
+             href="{{ route('hora.create', ['id' => $user->id]) }}"
              >Crear</a>
           </div>
         </div>

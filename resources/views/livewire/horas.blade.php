@@ -4,7 +4,6 @@
         <div class=" me-4">
           <h1>CONTROL DE HORAS:</h1>
         </div>
-       
       </div>
         
       <table class="table table-sm align-middle table-hover" style="align-items: center w-50">
@@ -17,7 +16,9 @@
             <th scope="col">Total Horas</th>
             <th scope="col">Asignar Horas</th>
             <th scope="col">Registro</th>
+            @can('Admin')
             <th scope="col">Eliminar</th>
+            @endcan
           </tr>
         </thead>
         <tbody style="">
@@ -30,7 +31,7 @@
             <td></td>   
             <td>
               <a class
-              ="btn btn-outline-primary mt-1 ml-2" style="ali" href="{{route('hora.create', ['id' => $user->id])}}"
+              ="btn btn-outline-primary mt-1 ml-2" style="ali" href="{{route('hora.create')}}"
               >Asignar</a>
             </td>
             <td>
@@ -38,6 +39,9 @@
               ="btn btn-outline-warning mt-1 ml-2" style="ali" href="{{route('hora.registro', ['id' => $user->id])}}"
               >Registro</a>
             </td>
+            @can('Admin')
+              
+           
             <td>
               
               <button class="btn btn-outline-danger mt-1 ml-2" style="ali" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
@@ -59,8 +63,8 @@
                 </div>
               </div>
             </div>
-  
             </td>
+             @endcan
           </tr>
           @endforeach
         </tbody>

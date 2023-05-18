@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="{{ mix('css/app.css', 'core/public') }}" rel="preload" as="style"
     onload="this.onload=null;this.rel='stylesheet'">
+
+    <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    
 <script src="{{ mix('js/app.js', 'core/public') }}" defer></script>
     
 

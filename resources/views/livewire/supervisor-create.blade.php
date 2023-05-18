@@ -18,6 +18,8 @@
                   <div class="form-group">
                     <label for="telefono">Teléfono</label>
                     <input type="text" class="form-control @error("telefono") is-invalid @enderror"
+                    maxlength="8"
+                    max="99999999"
                     id="telefono" wire:model.lazy="telefono">
 
                     @error("telefono")

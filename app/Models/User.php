@@ -34,9 +34,6 @@ class User extends Authenticatable
         'residencia'
     
     ];
-    // public function centro(){
-    //     return $this->belongsTo(Centro::class, 'user_id', 'id');
-    // }
 
     /**
      * The attributes that should be hidden for serialization.

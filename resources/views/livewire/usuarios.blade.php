@@ -4,16 +4,6 @@
       <div class=" me-4">
         <h1>Usuarios</h1>
       </div>
-     {{-- @can('admin.usuarios.usuario.create') --}}
-     <div>
-      <a class="btn btn-outline-success mt-2 ml-4" 
-      href="{{route('register')}}"
-       >Crear</a>
-
-       <a href="{{ route('register') }}" class="btn btn-primary">Registro</a>
-    </div>
-     {{-- @endcan --}}
-
     
     </div>
       
@@ -35,7 +25,9 @@
         </thead>
         <tbody class="table">
           @foreach ($users as $user)
-          
+           {{-- @if ($user->id == auth()->user()->id) --}}
+           @if (auth()->user()->hasRole('Admin') || $user->id == auth()->user()->id)
+
           <tr>
       
             <th scope="row">{{ $loop->index + 1 }}</th>
@@ -88,6 +80,7 @@
           @endcan
             
           </tr>
+          @endif
           @endforeach
         </tbody>
     </table> 

@@ -39,7 +39,7 @@
 
                 {{-- Sellec para centro --}}
 
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label for="centro">Centro</label>
                   <br>
                   <select class="form-select btn btn-outline-secondary" aria-label="Default select example" 
@@ -54,7 +54,7 @@
                     <small class="text-danger">{{$message}}</small>
                   @enderror
 
-                </div>
+                </div> --}}
 
                 {{-- Select para  carreras --}}
 

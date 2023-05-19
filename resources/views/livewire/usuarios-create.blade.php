@@ -59,6 +59,17 @@
 
         </div>
 
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="text" class="form-control @error(" password") is-invalid @enderror" id="password"
+            wire:model.lazy="password">
+
+          @error("password")
+          <small class="text-danger">{{$message}}</small>
+          @enderror
+
+        </div>
+
         <div style="display: flex; gap: 20px;">
           <div style="margin-left: 30px; margin-top: 20px">
             <button type="button" class="btn btn-outline-success" style="width: 150px"

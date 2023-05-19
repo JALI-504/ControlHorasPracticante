@@ -23,6 +23,7 @@
         </thead>
         <tbody style="">
           @foreach ($users as $user)
+           @if (auth()->user()->hasRole('Admin') || $user->id == auth()->user()->id)
           <tr>
             <th scope="row">{{ $loop->index + 1 }}</th>
             <td>{{ $user->name }}</td>
@@ -66,6 +67,7 @@
             </td>
              @endcan
           </tr>
+          @endif
           @endforeach
         </tbody>
     </table>

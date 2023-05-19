@@ -259,9 +259,8 @@ return [
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 
-    'register/register'
-   
-    ,
+    // 'register/register',
+   '',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => false,
@@ -318,7 +317,7 @@ return [
         ],
         [
             'text' => 'Registrar Usuarios',
-            'url'  => 'register/register',
+            'url'  => '',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

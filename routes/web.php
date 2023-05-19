@@ -13,13 +13,18 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Inicio;
 use App\Http\Livewire\Perfil;
+use App\Http\Livewire\Registros;
 use App\Http\Livewire\SupervisorCreate;
 use App\Http\Livewire\Supervisores;
 use App\Http\Livewire\Usuarios;
 use App\Http\Livewire\UsuariosCreate;
 
+
 // use App\Http\Livewire\UsuariosUpdate;
 
+// Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+// Route::post('/register', 'Auth\RegisterController@register');
+    
 Auth::routes();
 
 
@@ -30,7 +35,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', Inicio::class)->name('inicio')->middleware('auth');
 
-    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+    Route::get('/register', Registros::class)->name('register')->middleware('auth');
+    // Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+    // Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    // Route::post('/register', 'Auth\RegisterController@register');
+    
 
     Route::prefix('usuarios')->group(function () {
         Route::get('index', Usuarios::class)->name('usuario.index')->middleware('auth');

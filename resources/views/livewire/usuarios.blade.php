@@ -4,13 +4,15 @@
       <div class=" me-4">
         <h1>Usuarios</h1>
       </div>
-     @can('admin.usuarios.usuario.create')
+     {{-- @can('admin.usuarios.usuario.create') --}}
      <div>
       <a class="btn btn-outline-success mt-2 ml-4" 
       href="{{route('register')}}"
        >Crear</a>
+
+       <a href="{{ route('register') }}" class="btn btn-primary">Registro</a>
     </div>
-     @endcan
+     {{-- @endcan --}}
 
     
     </div>

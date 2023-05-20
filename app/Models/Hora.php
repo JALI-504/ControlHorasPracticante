@@ -37,8 +37,8 @@ class Hora extends Model
 
     public static function sumarTotalHorasPorUsuario($userId)
 {
-    $result = DB::select('SELECT user_id, ROUND(SUM(hora_total)/10000) AS total_suma_horas FROM horas WHERE user_id = ? GROUP BY user_id', [$userId]);
-    // $result = DB::select('SELECT user_id, ROUND(SUM(hora_total)) AS total_suma_horas FROM horas WHERE user_id = ? GROUP BY user_id', [$userId]);
+    // $result = DB::select('SELECT user_id, ROUND(SUM(hora_total)/10000) AS total_suma_horas FROM horas WHERE user_id = ? GROUP BY user_id', [$userId]);
+    $result = DB::select('SELECT user_id, ROUND(SUM(hora_total)) AS total_suma_horas FROM horas WHERE user_id = ? GROUP BY user_id', [$userId]);
     
     if (!empty($result)) {
         return $result[0]->total_suma_horas;

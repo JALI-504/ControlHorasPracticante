@@ -40,7 +40,7 @@
 
                 <div class="form-group">
                     <label for="horas_total">Horas Totales</label>
-                    <input type="text" class="form-control @error("horas_total") is-invalid @enderror" id="horas_total" value="{{$this->total_horas}}" disabled>
+                    <input type="number" class="form-control @error("horas_total") is-invalid @enderror" id="horas_total" value="{{$this->total_horas}}" disabled>
 
                     @error("horas_total")
                       <small class="text-danger">{{$message}}</small>

@@ -15,12 +15,6 @@ class CreateSupervisorsTable extends Migration
     {
         Schema::create('supervisors', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id')->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->unsignedInteger('centro_id')->constrained('centro')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
             $table->unsignedInteger('carrera_id')->constrained('carrera')
             ->onUpdate('cascade')
             ->onDelete('cascade');

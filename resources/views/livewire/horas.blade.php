@@ -41,8 +41,6 @@
               >Registro</a>
             </td>
             @can('Admin')
-              
-           
             <td>
               
               <button class="btn btn-outline-danger mt-1 ml-2" style="ali" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>

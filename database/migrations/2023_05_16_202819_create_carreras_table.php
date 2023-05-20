@@ -15,9 +15,6 @@ class CreateCarrerasTable extends Migration
     {
         Schema::create('carreras', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id')->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->unsignedInteger('centro_id')->constrained('centro')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

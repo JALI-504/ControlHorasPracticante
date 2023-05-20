@@ -31,7 +31,8 @@ class User extends Authenticatable
         'tel',
         'email',
         'password',
-        'residencia'
+        'residencia',
+        'carrera_id'
     
     ];
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Carrera;
 use Livewire\Component;
 use App\Models\User;
 
@@ -16,6 +17,8 @@ class UsuariosCreate extends Component
     public $email = "";
     public $residencia = "";
     public $password = "";
+    public $carrera = "";
+
 
 
     protected $rules = [
@@ -70,7 +73,10 @@ class UsuariosCreate extends Component
 
    public function render()
      {
-         return view('livewire.Usuarios-create')
+         return view('livewire.Usuarios-create', [
+            // 'centros' => Centro::all(),
+            'carreras' => Carrera::all()
+        ])
              ->extends('adminlte::page')
              ->section('content');
     }
@@ -98,6 +104,7 @@ class UsuariosCreate extends Component
                 'email' => $this->email,
                 'residencia' => $this->residencia,
                 'password' => bcrypt($this->password),
+                'carrera_id' => $this->carrera,
             ]);
         }
         return redirect()->route('inicio');

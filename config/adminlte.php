@@ -316,18 +316,6 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text' => 'Registrar Usuarios',
-            'url'  => 'usuarios/create',
-            'icon' => 'fas fa-fw fa-user',
-            'can'  => 'admin.usuarios.usuario.create',
-
-        ],
-        [
-            'text' => 'Usuarios',
-            'url'  => 'usuarios/index',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
             'text' => 'Centro',
             'url'  => 'centros/index',
             'icon' => 'fas fa-fw fa-school',
@@ -341,6 +329,18 @@ return [
             'text' => 'Supervisor',
             'url'  => 'supervisores/index',
             'icon' => 'fas fa-fw fa-user-shield',
+        ],
+        [
+            'text' => 'Registrar Usuarios',
+            'url'  => 'usuarios/create',
+            'icon' => 'fas fa-fw fa-user',
+            'can'  => 'admin.usuarios.usuario.create',
+
+        ],
+        [
+            'text' => 'Usuarios',
+            'url'  => 'usuarios/index',
+            'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Hora',

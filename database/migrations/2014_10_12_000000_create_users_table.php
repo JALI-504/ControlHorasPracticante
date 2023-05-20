@@ -15,6 +15,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('carrera_id')->constrained('carreras')
+            ->onUpdate('cascade')
+            ->onDelete('cascade')->nullable();;
             $table->string('name');
             $table->string('cuenta')->unique()->nullable();
             $table->string('tel')->unique()->nullable();

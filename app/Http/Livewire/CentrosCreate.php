@@ -57,7 +57,6 @@ class CentrosCreate extends Component
 
         }else {
             $Centro = Centro::create([
-                'user_id' => Auth()->user()->id,
                 'nombre_centro' => $this->nombre_centro               
             ]);
 

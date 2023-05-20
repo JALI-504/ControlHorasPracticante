@@ -15,9 +15,6 @@ class CreateCentrosTable extends Migration
     {
         Schema::create('centros', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id')->constrained('users')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
             $table->string('nombre_centro');         
             $table->timestamps();
         });

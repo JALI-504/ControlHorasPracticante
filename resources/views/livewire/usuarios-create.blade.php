@@ -1,6 +1,6 @@
 <div>
   {{-- Stop trying to control. --}}
-  <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="d-flex justify-content-center align-items-center" style="height: 120vh;">
     <div class="align-self-center">
       <form>
         <div class="form-group">
@@ -27,9 +27,7 @@
 
         <div class="form-group">
           <label for="telefono">Telefono</label>
-          <input type="tel" class="form-control @error(" telefono") is-invalid @enderror" 
-           maxlength="8"
-           max="99999999"
+          <input type="tel" class="form-control @error(" telefono") is-invalid @enderror" maxlength="8" max="99999999"
             id="telefono" wire:model.lazy="telefono">
 
           @error("telefono")
@@ -59,12 +57,33 @@
 
         </div>
 
+
+
         <div class="form-group">
           <label for="password">Password</label>
           <input type="text" class="form-control @error(" password") is-invalid @enderror" id="password"
             wire:model.lazy="password">
 
           @error("password")
+          <small class="text-danger">{{$message}}</small>
+          @enderror
+
+        </div>
+
+        {{-- Select para Carreras --}}
+
+        <div class="form-group">
+          <label for="carrera">Carreras</label>
+          <br>
+          <select class="form-select btn btn-outline-secondary" aria-label="Default select example" wire:model="carrera"
+            style="margin-left: 30px; width: 350px">
+            <option selected>Seleccione</option>
+            @foreach ($carreras as $carrera)
+            <option value="{{$carrera->id}}">{{$carrera->carrera}}</option>
+            @endforeach
+          </select>
+
+          @error("carrera")
           <small class="text-danger">{{$message}}</small>
           @enderror
 

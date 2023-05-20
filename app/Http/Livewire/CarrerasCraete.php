@@ -61,7 +61,7 @@ class CarrerasCraete extends Component
         }else {
             $carrera = Carrera::create([
                 'centro_id' => $this->centro,
-                'user_id' => Auth()->user()->id,
+                // 'user_id' => Auth()->user()->id,
                 'carrera' => $this->carrera,
             ]);
         }

@@ -59,7 +59,7 @@
 
 
 
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label for="password">Password</label>
           <input type="text" class="form-control @error(" password") is-invalid @enderror" id="password"
             wire:model.lazy="password">
@@ -68,7 +68,7 @@
           <small class="text-danger">{{$message}}</small>
           @enderror
 
-        </div>
+        </div> --}}
 
         {{-- Select para Carreras --}}
 

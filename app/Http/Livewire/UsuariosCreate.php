@@ -21,14 +21,17 @@ class UsuariosCreate extends Component
 
 
 
-    protected $rules = [
-        'nombre' => 'required|min:5|max:50',
-        'cuenta' => 'required|numeric',
-        'telefono' => 'required|numeric|min:20000000|max:999999999',
-        'email' => 'required|email',
-        'residencia' => 'required|min:5|max:250',
-        'password' => 'required',
-    ];
+    protected function rules()
+    {
+        return [
+            'nombre' => 'required|min:5|max:50',
+            'cuenta' => 'required|numeric',
+            'telefono' => 'required|numeric|min:20000000|max:999999999',
+            'email' => 'required|email',
+            'residencia' => 'required|min:5|max:250',
+            'password' => $this->edit ? '' : 'required|min:8',
+        ];
+    }
 
     protected $messages = [
         'nombre.required' => 'Este campo debe deser oblicatorio.',
@@ -51,7 +54,6 @@ class UsuariosCreate extends Component
         'residencia.min' => 'Debe ser menor de 8 caracteres.',
         'residencia.max' => 'Debe de ser mayor de 250 caracteres.',
         
-        'password.required' => 'Este campo debe deser oblicatorio.',
     ];
 
 
@@ -68,6 +70,8 @@ class UsuariosCreate extends Component
             $this->email = $this->user->email;
             $this->residencia = $this->user->residencia;
             $this->password = $this->user->password;
+            $this->carrera = $this->user->carrera_id; // Agregar esta línea
+
         }
     }
 

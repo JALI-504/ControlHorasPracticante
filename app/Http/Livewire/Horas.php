@@ -16,7 +16,8 @@ class Horas extends Component
     public function render()
     {
         return view('livewire.horas', [
-            'users' => User::all()
+            'users' => User::all(),
+            'horas' => Hora::all()
         ])
         ->extends('adminlte::page')
         ->section('content');

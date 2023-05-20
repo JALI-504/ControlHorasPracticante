@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Hora;
 use App\Models\User;
+use DateInterval;
 use DateTime;
 use Livewire\Component;
 
@@ -70,8 +71,16 @@ class HorasCreate extends Component
             $hora_final = new DateTime($this->hora_final);
     
             $interval = $hora_inicio->diff($hora_final);
-    
-            return $interval->format('%H:%I:%S ');
+            $total_horas = $interval->format('%H:%I:%S');
+
+            $nueva_hora_final = $hora_final->sub(new DateInterval('PT1H'));
+    $interval_actualizado = $hora_inicio->diff($nueva_hora_final);
+    $total_horas_actualizado = $interval_actualizado->format('%H:%I:%S');
+
+
+    return $total_horas_actualizado;
+            // return $interval->format('%H:%I:%S');
+            
         }
     
     

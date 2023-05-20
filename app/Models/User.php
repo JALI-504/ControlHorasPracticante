@@ -33,7 +33,7 @@ class User extends Authenticatable
         'password',
         'residencia',
         'carrera_id'
-    
+
     ];
 
     /**
@@ -55,24 +55,34 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function centro(){
+    public function centro()
+    {
         return $this->belongsTo(Centro::class, 'centro_id', 'id');
     }
 
-    public function carrera(){
+    public function carrera()
+    {
         return $this->belongsTo(Carrera::class, 'carrera_id', 'id');
     }
-    
-    public function supervisor(){
+
+    public function supervisor()
+    {
         return $this->belongsTo(Supervisor::class, 'supervisor_id', 'id');
     }
 
-    public function hora(){
+    public function hora()
+    {
         return $this->belongsTo(Hora::class, 'hora_id', 'id');
     }
 
-    public function adminlte_profile_url(){
+    public function adminlte_profile_url()
+    {
 
-        return route('usuario.perfil', ['id' => $this->id]);    }
-    
+        return route('usuario.perfil', ['id' => $this->id]);
+    }
+
+    public function horas()
+    {
+        return $this->hasMany(Hora::class);
+    }
 }

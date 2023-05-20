@@ -29,7 +29,7 @@
             <td>{{ $user->name }}</td>
             <td></td>
             <td></td>   
-            <td></td>   
+            <td>{{ \App\Models\Hora::sumarTotalHorasPorUsuario($user->id) }}</td>
             <td>
               <a class
               ="btn btn-outline-primary mt-1 ml-2" style="ali" href="{{route('hora.create')}}"

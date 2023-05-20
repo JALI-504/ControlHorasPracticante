@@ -39,14 +39,14 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="horas_total">Horas Totales</label>
-                    <input type="number" class="form-control @error("horas_total") is-invalid @enderror" id="horas_total" value="{{$this->total_horas}}" disabled>
-
-                    @error("horas_total")
+                  <label for="horas_total">Horas Totales</label>
+                  <input type="text" class="form-control @error("horas_total") is-invalid @enderror" id="horas_total" value="{{ is_numeric($this->total_horas) ? number_format($this->total_horas, 2) : $this->total_horas }}" disabled>
+              
+                  @error("horas_total")
                       <small class="text-danger">{{$message}}</small>
-                    @enderror
-
-                  </div>
+                  @enderror
+              </div>
+                
 
                 <div style="display: flex; gap: 20px;">
                     <div style="margin-left: 30px; margin-top: 20px">

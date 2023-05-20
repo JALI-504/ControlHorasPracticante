@@ -6,7 +6,7 @@
         </div>
       </div>
         
-      <table class="table table-sm align-middle table-hover" style="align-items: center w-50">
+      <table class="table table-sm align-middle table-hover" style="align-items: center w-50; align-content: center">
         <thead class=" thead-dark">
           <tr>
             <th scope="col">#</th>
@@ -29,7 +29,7 @@
             <td>{{ $user->name }}</td>
             <td></td>
             <td></td>   
-            <td>{{ \App\Models\Hora::sumarTotalHorasPorUsuario($user->id) }}</td>
+            <td>{{ \App\Models\Hora::getTotalHoras() }}</td>
             <td>
               <a class
               ="btn btn-outline-primary mt-1 ml-2" style="ali" href="{{route('hora.create')}}"

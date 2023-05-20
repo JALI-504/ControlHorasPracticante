@@ -21,7 +21,7 @@ class CreateHorasTable extends Migration
             $table->date('fecha');
             $table->time('hora_inicio');
             $table->time('hora_final');
-            $table->integer('hora_total');            
+            $table->string('hora_total');            
             $table->timestamps();
         });
     }

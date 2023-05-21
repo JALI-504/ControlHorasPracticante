@@ -21,19 +21,9 @@ class Hora extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->hasMany(User::class, 'user_id', 'id');
     }
 
-
-    // public function getTotalSumaHoras()
-    // {
-    //     $query = DB::table('horas')
-    //         ->select(DB::raw("TIME_FORMAT(SEC_TO_TIME(SUM(TIME_TO_SEC(hora_total))), '%H:%i') AS total_suma_horas"))
-    //         ->groupBy('user_id')
-    //         ->get();
-
-    //     return $query;
-    // }
 
     public function getTotalSumaHoras()
     {

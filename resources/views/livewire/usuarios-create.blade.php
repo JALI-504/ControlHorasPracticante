@@ -4,11 +4,11 @@
     <div class="align-self-center">
       <form>
         <div class="form-group">
-          <label for="nombre">Nombre</label>
-          <input type="name" class="form-control @error(" nombre") is-invalid @enderror" id="nombre"
-            wire:model.lazy="nombre">
+          <label for="name">Nombre</label>
+          <input type="name" class="form-control @error(" name") is-invalid @enderror" id="name"
+            wire:model.lazy="name">
 
-          @error("nombre")
+          @error("name")
           <small class="text-danger">{{$message}}</small>
           @enderror
 
@@ -57,17 +57,25 @@
 
         </div>
 
+        <div class="d-flex">
+          <div class="form-group flex-fill mx-2">
+            <label for="horas_requeridas">Horas Requeridas</label>
+            <input type="number" class="form-control @error('horas_requeridas') is-invalid @enderror" id="horas_requeridas" wire:model.lazy="horas_requeridas">
 
+            @error('horas_requeridas')
+            <small class="text-danger">{{ $message }}</small>
+            @enderror
+          </div>
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="text" class="form-control @error(" password") is-invalid @enderror" id="password"
-            wire:model.lazy="password">
+        
+          <div class="form-group flex-fill mx-2">
+            <label for="password">Password</label>
+            <input type="text" class="form-control @error('password') is-invalid @enderror" id="password" wire:model.lazy="password">
 
-          @error("password")
-          <small class="text-danger">{{$message}}</small>
-          @enderror
-
+            @error('password')
+            <small class="text-danger">{{ $message }}</small>
+            @enderror
+          </div>
         </div>
 
         {{-- Select para Carreras --}}

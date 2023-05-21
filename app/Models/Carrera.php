@@ -12,11 +12,12 @@ class Carrera extends Model
     protected $fillable = [
         'user_id',
         'carrera',
-        'centro_id'
+        'centro_id',
+        'carrera_id'
     ];
     
     public function user(){
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->hasMany(User::class, 'user_id', 'id');
     }
     public function centro(){
         return $this->belongsTo(Centro::class, 'centro_id', 'id');

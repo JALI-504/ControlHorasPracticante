@@ -32,7 +32,8 @@ class User extends Authenticatable
         'email',
         'password',
         'residencia',
-        'carrera_id'
+        'carrera_id',
+        'horas_requeridas'
 
     ];
 
@@ -62,7 +63,7 @@ class User extends Authenticatable
 
     public function carrera()
     {
-        return $this->belongsTo(Carrera::class, 'carrera_id', 'id');
+        return $this->hasMany(Carrera::class, 'carrera_id', 'id');
     }
 
     public function supervisor()
@@ -72,7 +73,7 @@ class User extends Authenticatable
 
     public function hora()
     {
-        return $this->belongsTo(Hora::class, 'hora_id', 'id');
+        return $this->hasMany(Hora::class, 'hora_id', 'id');
     }
 
     public function adminlte_profile_url()
@@ -81,8 +82,4 @@ class User extends Authenticatable
         return route('usuario.perfil', ['id' => $this->id]);
     }
 
-    public function horas()
-    {
-        return $this->hasMany(Hora::class);
-    }
 }

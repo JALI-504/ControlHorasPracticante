@@ -15,7 +15,7 @@
             <th scope="col">cuenta</th>
             <th scope="col">Telefono</th>
             <th scope="col">Email</th>
-            <th scope="col">Residencia</th>
+            {{-- <th scope="col">Residencia</th> --}}
             <th scope="col">Editar</th>
             @can('admin.usuarios.usuario.roles')
             <th scope="col">Roles</th>
@@ -35,7 +35,7 @@
             <td>{{$user->cuenta}}</td>
             <td>{{$user->tel}}</td>
             <td>{{$user->email}}</td>  
-            <td>{{$user->residencia}}</td>    
+            {{-- <td>{{$user->residencia}}</td>     --}}
             <td>
               <a class="btn btn-outline-warning mt-1 ml-2" style="ali" 
               href="{{route("usuario.update", ['id' => $user->id])}}"> 

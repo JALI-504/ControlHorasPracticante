@@ -16,12 +16,12 @@ class Centro extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->hasMany(User::class, 'user_id', 'id');
     }
 
-    // public function carreras(){
-    //     return $this->belongsTo(Carrera::class, 'carrera_id', 'id');
-    // }
+    public function carreras(){
+         return $this->hasMany(Carrera::class, 'carrera_id', 'id');
+    }
 
     // public function constancia(){
     //     return $this->belongsTo(Constancia::class, 'constancia_id', 'id');

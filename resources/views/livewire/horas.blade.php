@@ -5,7 +5,11 @@
           <h1>CONTROL DE HORAS:</h1>
         </div>
       </div>
-        
+
+@php
+    use App\Models\Hora;
+    $totalHoras = Hora::getTotalSumaHoras();
+@endphp
       <table class="table table-sm align-middle table-hover" style="align-items: center w-50">
         <thead class=" thead-dark">
           <tr>
@@ -24,12 +28,17 @@
         <tbody style="">
           @foreach ($users as $user)
            @if (auth()->user()->hasRole('Admin') || $user->id == auth()->user()->id)
+    
+       @php
+            $horaUsuario = $totalHoras->firstWhere('user_id', $user->id);
+        @endphp
           <tr>
             <th scope="row">{{ $loop->index + 1 }}</th>
             <td>{{ $user->name }}</td>
             <td></td>
-            <td></td>   
-            <td>{{ \App\Models\Hora::getTotalHoras() }}</td>
+            <td></td>  
+            <td>{{ $horaUsuario ? $horaUsuario->total_suma_horas : 'N/A' }}</td>
+
             <td>
               <a class
               ="btn btn-outline-primary mt-1 ml-2" style="ali" href="{{route('hora.create')}}"

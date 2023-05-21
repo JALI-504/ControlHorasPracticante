@@ -6,7 +6,7 @@
         </div>
       </div>
         
-      <table class="table table-sm align-middle table-hover" style="align-items: center w-50; align-content: center">
+      <table class="table table-sm align-middle table-hover" style="align-items: center w-50">
         <thead class=" thead-dark">
           <tr>
             <th scope="col">#</th>

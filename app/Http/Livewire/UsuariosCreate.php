@@ -10,6 +10,7 @@ class UsuariosCreate extends Component
  {
     public $user;
     public $edit = false;
+    public $isAdmin;
 
     public $name = "";
     public $cuenta = "";
@@ -19,6 +20,7 @@ class UsuariosCreate extends Component
     public $password = "";
     public $carrera = "";
     public $horas_requeridas = "";
+    
 
     protected function rules()
     {
@@ -63,6 +65,9 @@ class UsuariosCreate extends Component
     {
         if ($id != null) {
             $this->edit = true;
+            
+            $this->isAdmin = auth()->user()->hasRole('Admin');
+
 
             $this->user = User::find($id);
 

@@ -20,8 +20,18 @@
                   <p class="form-control" style="width: 50%">{{ $user->cuenta }}</p>
                   
              
-                  <p class="h5"><strong>Teléfono:</strong> </p>
-                  <p class="form-control" style="width: 50%">{{ $user->tel }}</p>
+                <div class="d-flex">
+                <div class="form-group" style="width: 30%">
+                    <p class="h5"><strong>Teléfono:</strong></p>
+                    <p class="form-control" style="width: 90%">{{ $user->tel }}</p>
+                </div>
+
+               <div class="form-group" style="width: 25%">
+                    <p class="h5"><strong>Horas Requeridas:</strong></p>
+                    <p class="form-control" style="width: 80%">{{ $user->horas_requeridas }}</p>
+               </div>
+                </div>
+            
             
                   <p class="h5"><strong>Email:</strong> </p>
                   <p class="form-control" style="width: 50%">{{ $user->email }}</p>

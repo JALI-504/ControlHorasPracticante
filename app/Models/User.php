@@ -82,4 +82,18 @@ class User extends Authenticatable
         return route('usuario.perfil', ['id' => $this->id]);
     }
 
+    public function adminlte_image(){
+
+        return 'https://picsum.photos/300/300';
+    }
+
+    public function adminlte_desc()
+    {
+        $roles = $this->roles->pluck('name')->toArray();
+
+        // Retornar los roles separados por comas
+        return implode(', ', $roles);
+       
+    }
+
 }

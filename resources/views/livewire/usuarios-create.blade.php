@@ -67,15 +67,32 @@
             @enderror
           </div>
 
-        
-          <div class="form-group flex-fill mx-2">
+         {{-- <div class="form-group flex-fill mx-2">
             <label for="password">Password</label>
-            <input type="text" class="form-control @error('password') is-invalid @enderror" id="password" wire:model.lazy="password">
+            @can('Admin')
+                <input type="text" class="form-control @error('password') is-invalid @enderror" id="password" wire:model.lazy="password">
+            @else
+                <input type="password" class="form-control" disabled>
+                <small class="text-muted">Acceso restringido</small>
+            @endcan
+
+            @error('password')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
+        </div> --}}
+
+        <div class="form-group flex-fill mx-2">
+            <label for="password">Password</label>
+            @if($isAdmin)
+                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" wire:model.lazy="password">
+            @else
+                <input type="password" class="form-control" id="password" disabled>
+            @endif
 
             @error('password')
             <small class="text-danger">{{ $message }}</small>
             @enderror
-          </div>
+        </div>
         </div>
 
         {{-- Select para Carreras --}}

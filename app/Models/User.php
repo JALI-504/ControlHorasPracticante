@@ -33,7 +33,8 @@ class User extends Authenticatable
         'password',
         'residencia',
         'carrera_id',
-        'horas_requeridas'
+        'horas_requeridas',
+        'image'
 
     ];
 

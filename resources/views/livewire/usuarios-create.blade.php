@@ -1,8 +1,10 @@
 <div>
   {{-- Stop trying to control. --}}
-  <div class="d-flex justify-content-center align-items-center" style="height: 120vh;">
+  <div class="d-flex justify-content-center align-items-center" style="height: 140vh;">
     <div class="align-self-center">
-      <form>
+
+
+      <form wire:submit.prevent="guardar_usuario" enctype="multipart/form-data">
         <div class="form-group">
           <label for="name">Nombre</label>
           <input type="name" class="form-control @error(" name") is-invalid @enderror" id="name"
@@ -57,31 +59,18 @@
 
         </div>
 
-        <div class="d-flex">
-          <div class="form-group flex-fill mx-2">
+        <div class="form-group d-flex">
+          <div class="form-group flex-fill">
             <label for="horas_requeridas">Horas Requeridas</label>
-            <input type="number" class="form-control @error('horas_requeridas') is-invalid @enderror" id="horas_requeridas" wire:model.lazy="horas_requeridas">
+            <input type="number" class="form-control @error('horas_requeridas') is-invalid @enderror"
+             id="horas_requeridas" wire:model.lazy="horas_requeridas">
 
             @error('horas_requeridas')
             <small class="text-danger">{{ $message }}</small>
             @enderror
           </div>
 
-         {{-- <div class="form-group flex-fill mx-2">
-            <label for="password">Password</label>
-            @can('Admin')
-                <input type="text" class="form-control @error('password') is-invalid @enderror" id="password" wire:model.lazy="password">
-            @else
-                <input type="password" class="form-control" disabled>
-                <small class="text-muted">Acceso restringido</small>
-            @endcan
-
-            @error('password')
-                <small class="text-danger">{{ $message }}</small>
-            @enderror
-        </div> --}}
-
-        <div class="form-group flex-fill mx-2">
+<div class="form-group flex-fill mx-2">
             <label for="password">Password</label>
             @if($isAdmin)
                 <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" wire:model.lazy="password">
@@ -93,8 +82,17 @@
             <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-        </div>
 
+        </div>
+  
+        <div class="form-group">
+            <label for="image" class="form-label">Seleccione una Imagen</label>
+            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" wire:model="image">
+            @error('image')
+            <small class="text-danger">{{ $message }}</small>
+            @enderror
+        </div>
+        
         {{-- Select para Carreras --}}
 
         <div class="form-group">

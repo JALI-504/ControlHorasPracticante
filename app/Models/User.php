@@ -64,7 +64,7 @@ class User extends Authenticatable
 
     public function carrera()
     {
-        return $this->hasMany(Carrera::class, 'carrera_id', 'id');
+        return $this->belongsTo(Carrera::class, 'carrera_id', 'id');
     }
 
     public function supervisor()

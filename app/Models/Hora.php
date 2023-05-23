@@ -34,4 +34,19 @@ class Hora extends Model
 
         return $query;
     }
+
+    public function getPrimeraFechaPorUsuario()
+    {
+        return $this->select('user_id', DB::raw('MIN(fecha) AS primera_fecha'))
+            ->groupBy('user_id')
+            ->get();
+    }
+
+    public function getUltimaFechaPorUsuario()
+{
+    return $this->select('user_id', DB::raw('MAX(fecha) AS ultima_fecha'))
+        ->groupBy('user_id')
+        ->get();
+}
+
 }

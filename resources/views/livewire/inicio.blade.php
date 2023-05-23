@@ -4,66 +4,33 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('CONTROL DE HORAS PARA PRACTICANTES') }}</div>
+                    <div class="card-header" style="text-align: center"><h2><strong>{{ __('CONTROL DE HORAS PARA PRACTICANTES') }}</strong></h2></div>
     
                     <div class="card-body">
-                      {{--  @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                         @endif
-    
-                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="{{asset('images/nov3.jpg')}}" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                  <h5>First slide label</h5>
-                                  <p>Some representative placeholder content for the first slide.</p>
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="{{asset('images/nv1.png')}}" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                  <h5>Second slide label</h5>
-                                  <p>Some representative placeholder content for the second slide.</p>
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="{{asset('images/descarga.png')}}" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                  <h5>Third slide label</h5>
-                                  <p>Some representative placeholder content for the third slide.</p>
-                                </div>
-                              </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div>
-                  </div> --}}
-    
+      
                     <div class="card">
                         <div class="card-body">
-                            @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
-        
-                            <a 
-                            {{-- href="{{ route('hp.contacia')}}"I --}}
-                            >Imprimir PDF</a>
+                          <div class="d-flex align-items-center" style="text-align: center">
+                            <img src="https://picsum.photos/300/300" alt="Perfil" class="rounded-circle me-3" style="width: 100px; height: 100px;">
+                            <div>
+                              <h3>{{ auth()->user()->name }}</h3>
+                          @if (auth()->check() && auth()->user()->carrera)
+                              <h4>{{ auth()->user()->carrera->carrera }}</h4>
+                          @endif  
+                          @if (auth()->check() && auth()->user()->carrera && auth()->user()->carrera->centro)
+                              <h5>{{ auth()->user()->carrera->centro->nombre_centro }}</h5>
+                          @endif
+                              <br>
+                              <h6>Horas de Practica Requeridas: {{ auth()->user()->horas_requeridas }}</h6>
+                              <h6>Progreso:</h6>
+                              <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                              </div>
+         
+                          </div>
+
+                       </div>
+                        </div>              
                         </div>
                     </div>
                 </div>

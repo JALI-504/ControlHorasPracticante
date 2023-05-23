@@ -35,8 +35,11 @@
           <tr>
             <th scope="row">{{ $loop->index + 1 }}</th>
             <td>{{ $user->name }}</td>
-            <td></td>
-            <td></td>  
+           @foreach ($horas as $hora)
+                    <td>{{ $hora->getPrimeraFechaPorUsuario()->first()->primera_fecha }}</td>
+                    <td>{{ $hora->getUltimaFechaPorUsuario()->first()->ultima_fecha }}</td>
+            @endforeach
+             
             <td>{{ $horaUsuario ? $horaUsuario->total_suma_horas : 'N/A' }}</td>
 
             <td>

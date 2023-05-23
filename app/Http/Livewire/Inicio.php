@@ -12,43 +12,26 @@ use Livewire\Component;
 
 class Inicio extends Component
 {
-
-    // public function render()
-    // {
-    //     $user = User::with('carrera')->get();
-
-    //     // $carrera = Carrera::find($user);
-    //     // $centro = Centro::find($user);
-
-
-    //     return view('livewire.inicio', [
-    //         'users' => User::all(),
-    //         'supervisors' => Supervisor::all(),
-    //         'carreras' => Carrera::all(),
-    //         'centros' => Centro::all(),
-
-    //     ])
-    //         ->extends('adminlte::page')
-    //         ->section('content');
-    // }
-
     public function render()
     {
         $user = auth()->user();
-        $horasRequeridas = $user->horas_requeridas;
-        $totalHoras = Hora::getTotalSumaHoras()->where('user_id', $user->id)->first();
+        $total_hora = Hora::getTotalSumaHoras()->where('user_id', $user->id)->first();
 
-        return view('livewire.inicio', compact('horasRequeridas', 'totalHoras'),
-         [
-             'users' => User::all(),
-             'supervisors' => Supervisor::all(),
-             'carreras' => Carrera::all(),
-             'centros' => Centro::all(),
 
-         ])
-        ->extends('adminlte::page')
-        ->section('content');
+
+        return view(
+            'livewire.inicio',
+            compact('user', 'total_hora'),
+            [
+                'user' => $user,
+                'supervisors' => Supervisor::all(),
+                'carreras' => Carrera::all(),
+                'centros' => Centro::all(),
+                'horas' => Hora::all(),
+
+            ]
+        )
+            ->extends('adminlte::page')
+            ->section('content');
     }
-
-
 }

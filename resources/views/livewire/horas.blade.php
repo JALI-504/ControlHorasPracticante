@@ -44,9 +44,8 @@
             <td>{{ $horaUsuario ? $horaUsuario->total_suma_horas : 'N/A' }}</td>
 
             <td>
-              <a class
-              ="btn btn-outline-primary mt-1 ml-2" style="ali" href="{{route('hora.create')}}"
-              >Asignar</a>
+              <a class="btn btn-outline-primary mt-1 ml-2" style="ali" href="{{ route('hora.create') }}">Asignar</a>
+
             </td>
             <td>
               <a class

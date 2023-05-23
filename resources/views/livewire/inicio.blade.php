@@ -76,7 +76,8 @@
                 @endforeach --}}
 
 
-            {{-- </div>
+                {{--
+            </div>
         </div>
     </div>
 </div> --}}
@@ -89,7 +90,7 @@
 
                 @role('Admin')
                 <!-- Contenido exclusivo para el rol de 'Admin' -->
-                @foreach ($users as $user)
+                {{-- @foreach ($users as $user)
                 <div class="card" style="margin-top: 5%">
                     <div class="card-body">
                         <h5>Practicante: {{ $user->name }}</h5>
@@ -105,6 +106,29 @@
                     <div>
                     </div>
                 </div>
+                @endforeach --}}
+
+                @foreach ($users as $user)
+                @if (!$user->hasRole('Admin'))
+                <div class="card" style="margin-top: 5%">
+                    <div class="card-body">
+                        <div class="d-flex flex-row align-items-center">
+                            <img src="https://picsum.photos/300/300" alt="Perfil" class="rounded-circle me-3" style="width: 100px; height: 100px;">
+                            <div>
+                                <h5>Practicante: {{ $user->name }}</h5>
+                                @if ($user->carrera)
+                                    <p>Carrera: {{ $user->carrera->carrera }}</p>
+                                    <p>Centro: {{ $user->carrera->centro ? $user->carrera->centro->nombre_centro : 'Sin asignar' }}</p>
+                                @else
+                                    <p>Carrera: Sin asignar</p>
+                                    <p>Centro: Sin asignar</p>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                @endif
                 @endforeach
                 @else
                 <!-- Contenido para otros roles (en este caso, Practicante) -->

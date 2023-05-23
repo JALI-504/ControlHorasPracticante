@@ -20,8 +20,10 @@
             <th scope="col">Nombre</th>
             <th scope="col">Telefono</th>
             <th scope="col">Email</th>
-            @can('Admin')
+            @can('admin.supervisores.sup.update')      
             <th scope="col">Editar</th>
+            @endcan
+            @can('admin.supervisores.destroy')      
             <th scope="col">Eliminar</th>
             @endcan
           </tr>
@@ -34,12 +36,14 @@
             <td>{{$supervisor->nombre_sup}}</td>
             <td>{{$supervisor->tel}}</td>
             <td>{{$supervisor->email}}</td>  
-            @can('Admin')        
+            @can('admin.supervisores.sup.update')      
             <td>
               <a class="btn btn-outline-warning mt-1 ml-2" style="ali" 
               href="{{route("sup.update", ['id' => $supervisor->id])}}"
               >Editar</a>
             </td>
+            @endcan
+            @can('admin.supervisores.destroy')      
             <td>  
               <button class="btn btn-outline-danger mt-1 ml-2"
                style="ali" data-bs-toggle="modal" data-bs-target="#exampleModal"

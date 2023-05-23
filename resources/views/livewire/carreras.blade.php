@@ -18,8 +18,10 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col" style="width: 60%">Carrera</th>
-            @can('Admin')
+            @can('admin.carreras.carrera.update')      
             <th scope="col">Editar</th>
+            @endcan
+            @can('admin.carreras.destroy')      
             <th scope="col">Eliminar</th>
             @endcan
           </tr>
@@ -27,15 +29,16 @@
         <tbody class="table">
           @foreach ($carreras as $carrera)
           <tr>
-      
             <th scope="row">{{ $loop->index + 1 }}</th>
             <td>{{$carrera->carrera}}</td> 
-            @can('Admin')
+            @can('admin.carreras.carrera.update')      
             <td>
               <a class="btn btn-outline-warning mt-1 ml-2" style="ali" 
               href="{{route("carrera.update", ['id' => $carrera->id])}}"
               >Editar</a>
             </td> 
+            @endcan
+            @can('admin.carreras.destroy')      
             <td>  
               <button class="btn btn-outline-danger mt-1 ml-2"
                style="ali" data-bs-toggle="modal" data-bs-target="#exampleModal"

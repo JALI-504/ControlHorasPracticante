@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card" style="margin-top: 5%">
                     <div class="card-header" style="text-align: center">
                         <h2><strong>{{ __('CONTROL DE HORAS PARA PRACTICANTES') }}</strong></h2>
                     </div>
@@ -24,13 +24,30 @@
                                         <br>
                                         <h6>Horas de Practica Requeridas: {{ $user->horas_requeridas }}</h6>
                                         <h6>Progreso:</h6>
+
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar"
-                                                style="width: {{ $total_hora->total_suma_horas > 0 ? floatval($total_hora->total_suma_horas) / floatval($user->horas_requeridas) * 100 : 0 }}%;"
-                                                aria-valuenow="{{ $total_hora->total_suma_horas }}" aria-valuemin="0"
+                                            @php
+                                            $prog = is_numeric($total_hora->total_suma_horas) ? number_format($total_hora->total_suma_horas, 2) : '0.00';
+                                            $s = '';
+                                            if ($prog < 34) {
+                                                $s = 'bg-danger';
+                                            } elseif ($prog < 67) {
+                                                $s = 'bg-warning';
+                                            } else {
+                                                $s = 'bg-success';
+                                            }
+                                            $width = $total_hora->total_suma_horas > 0 ? (floatval($total_hora->total_suma_horas) / floatval($user->horas_requeridas)) * 100 : 0;
+                                            @endphp
+                                            <div class="progress-bar custom-progress-bar {{ $s }}" role="progressbar"
+                                                style="width: {{ $width }}%; max-width: 100%;"
+                                                aria-valuenow="{{ $total_hora->total_suma_horas }}"
+                                                aria-valuemin="0"
                                                 aria-valuemax="{{ $user->horas_requeridas }}">
-                                                {{ $total_hora->total_suma_horas }}
+                                                <span class="font-weight-bold">{{ $total_hora->total_suma_horas }}</span>
                                             </div>
+                                        </div>
+                                        
+
                                         </div>
                                     </div>
                                 </div>
@@ -41,4 +58,3 @@
             </div>
         </div>
     </div>
-</div>

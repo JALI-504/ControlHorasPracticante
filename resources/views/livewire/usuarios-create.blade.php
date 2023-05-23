@@ -70,14 +70,14 @@
             @enderror
           </div>
 
-<div class="form-group flex-fill mx-2">
-    <label for="password">Password</label>
-    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" wire:model.lazy="password">
+          <div class="form-group flex-fill mx-2">
+              <label for="password">Password</label>
+              <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" wire:model.lazy="password">
 
-    @error('password')
-    <small class="text-danger">{{ $message }}</small>
-    @enderror
-</div>
+              @error('password')
+              <small class="text-danger">{{ $message }}</small>
+              @enderror
+          </div>
         </div>
   
         <div class="form-group">

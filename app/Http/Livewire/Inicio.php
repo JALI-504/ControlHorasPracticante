@@ -15,25 +15,28 @@ class Inicio extends Component
     public function render()
     {
         $user = auth()->user();
-        $total_hora = Hora::getTotalSumaHoras()->where('user_id', $user->id)->first();
-        // $users = User::all(); 
+        $total_hora = Hora::getTotalSumaHoras()->where('user_id', $user->id);
+        $total_hora_id = Hora::getTotalSumaHorasPorId($user->id);
+        
         $users = User::with('carrera.centro')->get(); // Obtener todos los usuarios con la relación carrera cargada
 
+        $currentUser = User::findOrFail($user->id);
+        $width = 0;
 
-        // dd($users);
+        //  dd($total_hora_id);
+     
 
         return view(
             'livewire.inicio',
-            compact('user', 'total_hora', 'users'),
-            [
-                'user' => $user,
+            compact('user', 'total_hora', 'users', 'total_hora_id', 'currentUser', 'width'),
+            [              
                 'supervisors' => Supervisor::all(),
                 'carreras' => Carrera::all(),
                 'centros' => Centro::all(),
                 'horas' => Hora::all(),
 
             ]
-        )
+        ) 
             ->extends('adminlte::page')
             ->section('content');
     }

@@ -74,7 +74,7 @@ class User extends Authenticatable
 
     public function hora()
     {
-        return $this->hasMany(Hora::class, 'hora_id', 'id');
+        return $this->hasMany(Hora::class, 'user_id', 'id');
     }
 
     public function adminlte_profile_url()

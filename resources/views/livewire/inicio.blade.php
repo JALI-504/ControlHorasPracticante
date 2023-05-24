@@ -5,36 +5,49 @@
 
                 @role('Admin')
 
-
                 @foreach ($users as $user)
                 @if (!$user->hasRole('Admin'))
                 <div class="card" style="margin-top: 5%">
                     <div class="card-body">
                         <div class="d-flex flex-row align-items-center">
-                            <img src="https://picsum.photos/300/300" alt="Perfil" class="rounded-circle me-3" style="width: 100px; height: 100px;">
+                            <img src="https://picsum.photos/300/300" alt="Perfil" class="rounded-circle me-3"
+                                style="width: 100px; height: 100px;">
                             <div>
-                                <h5>Practicante: {{ $user->name }}</h5>
-                                @if ($user->carrera)
+                                <div style="margin-left: 20px">
+                                    <h5>Practicante: {{ $user->name }}</h5>
+                                    @if ($user->carrera)
                                     <p>Carrera: {{ $user->carrera->carrera }}</p>
-                                    <p>Centro: {{ $user->carrera->centro ? $user->carrera->centro->nombre_centro : 'Sin asignar' }}</p>
-                                @else
+                                    <p>Centro: {{ $user->carrera->centro ? $user->carrera->centro->nombre_centro : 'Sin
+                                        asignar' }}</p>
+                                    @else
                                     <p>Carrera: Sin asignar</p>
                                     <p>Centro: Sin asignar</p>
-                                @endif
-                                @foreach ($total_hora_id as $hora) 
-                                    {{ $hora->user_id }}
-                                    {{ $user->horas_requeridas }}
-                                    {{ $hora->total_suma_horasId }}
-                                @endforeach 
+                                    @endif
 
- 
+                                    <p>Horas Requeridas: {{ $user->horas_requeridas }}</p>
+
+                                    <div class="progress">
+                                        <div class="progress-bar
+                                            @if($user->totalHorasAcumuladas() < ($user->horas_requeridas * 0.35))
+                                                bg-danger
+                                            @elseif($user->totalHorasAcumuladas() < ($user->horas_requeridas * 0.70))
+                                                bg-warning
+                                            @else
+                                                bg-success
+                                            @endif" role="progressbar"
+                                            style="width: {{ ($user->totalHorasAcumuladas() / $user->horas_requeridas) * 100 }}%"
+                                            aria-valuemin="0" aria-valuemax="{{ $user->horas_requeridas }}">
+                                            {{ round(($user->totalHorasAcumuladas() / $user->horas_requeridas) * 100)
+                                            }}%
+                                        </div>
+                                    </div>
 
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 @endif
                 @endforeach
                 @else
@@ -61,27 +74,24 @@
                                         <br>
                                         <h6>Horas de Practica Requeridas: {{ $user->horas_requeridas }}</h6>
                                         <h6>Progreso:</h6>
-                                        <div class="progress">
-                                            @php
-                                            $prog = is_numeric($total_hora->total_suma_horas) ?
-                                            number_format($total_hora->total_suma_horas, 2) : '0.00';
-                                            $s = '';
-                                            if ($prog < 34) { $s='bg-danger' ; } elseif ($prog < 67) { $s='bg-warning' ;
-                                                } else { $s='bg-success' ; } $width=0; if ($total_hora->total_suma_horas
-                                                > 0 && $user->horas_requeridas > 0) {
-                                                $width = (floatval($total_hora->total_suma_horas) /
-                                                floatval($user->horas_requeridas)) * 100;
-                                                }
-                                                @endphp
 
-                                                <div class="progress-bar custom-progress-bar {{ $s }}"
-                                                    role="progressbar" style="width: {{ $width }}%; max-width: 100%;"
-                                                    aria-valuenow="{{ $total_hora->total_suma_horas }}"
-                                                    aria-valuemin="0" aria-valuemax="{{ $user->horas_requeridas }}">
-                                                    <span class="font-weight-bold">{{ $total_hora->total_suma_horas
-                                                        }}</span>
-                                                </div>
+                                        <div class="progress">
+                                            <div class="progress-bar
+                                                @if($user->totalHorasAcumuladas() < ($user->horas_requeridas * 0.35))
+                                                    bg-danger
+                                                @elseif($user->totalHorasAcumuladas() < ($user->horas_requeridas * 0.70))
+                                                    bg-warning
+                                                @else
+                                                    bg-success
+                                                @endif" role="progressbar"
+                                                style="width: {{ ($user->totalHorasAcumuladas() / $user->horas_requeridas) * 100 }}%"
+                                                aria-valuemin="0" aria-valuemax="{{ $user->horas_requeridas }}">
+                                                {{ round(($user->totalHorasAcumuladas() / $user->horas_requeridas) *
+                                                100) }}%
+                                            </div>
                                         </div>
+
+
                                     </div>
                                 </div>
                             </div>

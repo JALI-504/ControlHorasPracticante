@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use DateInterval;
-use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -34,23 +32,6 @@ class Hora extends Model
 
         return $query;
     }
-
-    // public static function getTotalSumaHorasPorId($userId)
-    // {
-    //     return self::select('user_id', DB::raw("TIME_FORMAT(SEC_TO_TIME(SUM(TIME_TO_SEC(hora_total))), '%H:%i') AS total_suma_horas"))
-    //     ->where('user_id', '!=', $userId) // Excluir al usuario logueado
-    //     ->groupBy('user_id')
-    //     ->get();
-    // }
-
-    public static function getTotalSumaHorasPorId($userId)
-    {
-        return self::select('user_id', DB::raw("TIME_FORMAT(SEC_TO_TIME(SUM(TIME_TO_SEC(hora_total))), '%H:%i') AS total_suma_horasId"))
-        ->where('user_id', '!=', $userId) // Excluir al usuario logueado
-            ->groupBy('user_id')
-            ->get();
-    }
-
 
     public function getPrimeraFechaPorUsuario()
     {

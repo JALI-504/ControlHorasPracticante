@@ -15,20 +15,18 @@ class Inicio extends Component
     public function render()
     {
         $user = auth()->user();
-        $total_hora = Hora::getTotalSumaHoras()->where('user_id', $user->id);
-        $total_hora_id = Hora::getTotalSumaHorasPorId($user->id);
-        
+        $total_hora = Hora::getTotalSumaHoras()->where('user_id', $user->id);        
         $users = User::with('carrera.centro')->get(); // Obtener todos los usuarios con la relación carrera cargada
 
-        $currentUser = User::findOrFail($user->id);
-        $width = 0;
+        // $currentUser = User::findOrFail($user->id);
+        // $width = 0;
 
         //  dd($total_hora_id);
      
 
         return view(
             'livewire.inicio',
-            compact('user', 'total_hora', 'users', 'total_hora_id', 'currentUser', 'width'),
+            compact('user', 'total_hora', 'users'),
             [              
                 'supervisors' => Supervisor::all(),
                 'carreras' => Carrera::all(),

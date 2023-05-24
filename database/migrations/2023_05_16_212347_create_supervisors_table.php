@@ -15,7 +15,7 @@ class CreateSupervisorsTable extends Migration
     {
         Schema::create('supervisors', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('carrera_id')->references('id')->on('carrera')
+            $table->foreignId('carrera_id')->references('id')->on('carreras')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('nombre_sup');

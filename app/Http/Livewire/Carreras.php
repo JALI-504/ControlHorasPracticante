@@ -16,13 +16,13 @@ class Carreras extends Component
         ->section('content');
     }
 
-    public function delete  ($id){
+    public function delete($id){
         
         // dd($id);
 
-        $Supervisor = Carrera::find($id);
+        $carrera = Carrera::find($id);
         
-        $Supervisor->delete();
+        $carrera->delete();
 
         return redirect()->route('carrera.index');
     }

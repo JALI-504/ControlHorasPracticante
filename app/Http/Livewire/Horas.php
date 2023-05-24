@@ -25,9 +25,9 @@ class Horas extends Component
 
     public function delete($id){
 
-        $User = User::find($id);
+        $horas = Hora::find($id);
         
-        $User->delete();
+        $horas->delete();
         return redirect()->route('hora.index');
     }
 

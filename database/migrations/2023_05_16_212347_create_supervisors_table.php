@@ -15,9 +15,9 @@ class CreateSupervisorsTable extends Migration
     {
         Schema::create('supervisors', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('carrera_id')->constrained('carrera')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            $table->foreignId('carrera_id')->references('id')->on('carrera')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->string('nombre_sup');
             $table->string('tel');
             $table->string('email')->unique();

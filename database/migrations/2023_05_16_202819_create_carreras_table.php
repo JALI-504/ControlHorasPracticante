@@ -15,7 +15,7 @@ class CreateCarrerasTable extends Migration
     {
         Schema::create('carreras', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('centro_id')->constrained('centro')
+            $table->foreignId('centro_id')->references('id')->on('centros')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('carrera');

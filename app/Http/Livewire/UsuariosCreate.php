@@ -119,6 +119,7 @@ class UsuariosCreate extends Component
             $this->user->email = $this->email;
             $this->user->residencia = $this->residencia;
             $this->user->horas_requeridas = $horasEnMinutos;
+            $this->user->carrera_id = $this->carrera;
             $this->user->password = bcrypt($this->password);
 
             $imageName = null; // Variable para almacenar el nombre de la imagen

@@ -23,14 +23,6 @@ class Horas extends Component
         ->section('content');
     }
 
-    public function delete($id){
-
-        $horas = Hora::find($id);
-        
-        $horas->delete();
-        return redirect()->route('hora.index');
-    }
-
     public function sumatotal(){
         $this->total = Hora::table('horas')
         ->sum('total_horas');

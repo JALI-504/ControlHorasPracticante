@@ -23,9 +23,9 @@ class Centros extends Component
         
         // dd($id);
 
-        $Centro = Centro::find($id);
-        
-        $Centro->delete();
+        $centro = Centro::find($id);
+    
+        $centro->delete();
 
         
         return redirect()->route('centro.index');

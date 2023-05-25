@@ -63,45 +63,25 @@ class HorasCreate extends Component
             ->section('content');
     }
 
-    //Computed Property
 
-// public function getTotalHorasProperty()
-// {
-//     $hora_inicio = new DateTime($this->hora_inicio);
-//     $hora_final = new DateTime($this->hora_final);
+    public function getTotalHorasProperty()
+    {
+        $hora_inicio = new DateTime($this->hora_inicio);
+        $hora_final = new DateTime($this->hora_final);
 
-//     if ($hora_final->format('H:i') === '12:00') {
-//         $interval = $hora_inicio->diff($hora_final);
-//         $horas = $interval->h;
-//         $minutos = $interval->i;
-//         return sprintf('%02d:%02d', $horas, $minutos);
-//     }
+        if ($hora_final->format('H:i') === '12:00') {
+            $interval = $hora_inicio->diff($hora_final);
+            $horas = $interval->h;
+            $minutos = $interval->i;
+            return sprintf('%02d:%02d', $horas, $minutos);
+        }
 
-//     $nueva_hora_final = $hora_final->sub(new DateInterval('PT1H'));
-//     $interval_actualizado = $hora_inicio->diff($nueva_hora_final);
-//     $horas_actualizado = $interval_actualizado->h;
-//     $minutos_actualizado = $interval_actualizado->i;
-//     return sprintf('%02d:%02d', $horas_actualizado, $minutos_actualizado);
-// }
-
-public function getTotalHorasProperty()
-{
-    $hora_inicio = new DateTime($this->hora_inicio);
-    $hora_final = new DateTime($this->hora_final);
-
-    if ($hora_final->format('H:i') === '12:00') {
-        $interval = $hora_inicio->diff($hora_final);
-        $horas = $interval->h;
-        $minutos = $interval->i;
-        return sprintf('%02d:%02d', $horas, $minutos);
+        $nueva_hora_final = $hora_final->sub(new DateInterval('PT1H'));
+        $interval_actualizado = $hora_inicio->diff($nueva_hora_final);
+        $horas_actualizado = $interval_actualizado->h;
+        $minutos_actualizado = $interval_actualizado->i;
+        return sprintf('%02d:%02d', $horas_actualizado, $minutos_actualizado);
     }
-
-    $nueva_hora_final = $hora_final->sub(new DateInterval('PT1H'));
-    $interval_actualizado = $hora_inicio->diff($nueva_hora_final);
-    $horas_actualizado = $interval_actualizado->h;
-    $minutos_actualizado = $interval_actualizado->i;
-    return sprintf('%02d:%02d', $horas_actualizado, $minutos_actualizado);
-}
 
 
     public function guardar_hora()
@@ -117,7 +97,7 @@ public function getTotalHorasProperty()
             $this->Hora->hora_inicio = $this->hora_inicio;
             $this->Hora->hora_final = $this->hora_final;
             $this->Hora->hora_total = $this->total_horas;
-            
+
 
             $this->Hora->save();
         } else {
@@ -130,6 +110,6 @@ public function getTotalHorasProperty()
             ]);
         }
 
-        return redirect()->route('hora.index');
+        return redirect()->route('hora.registro' , ['id' => Auth()->user()->id]);
     }
 }

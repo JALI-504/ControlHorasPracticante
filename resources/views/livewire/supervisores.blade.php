@@ -45,9 +45,32 @@
             @endcan
             @can('admin.supervisores.destroy')      
             <td>  
-              <button class="btn btn-outline-danger mt-1 ml-2"
-               style="ali" data-bs-toggle="modal" data-bs-target="#exampleModal"
-               wire:click='delete({{$supervisor->id}})'>Eliminar</button>
+              <button class="btn btn-outline-danger mt-1 ml-2" style="ali"
+              data-toggle="modal"
+              data-target="#exampleModal{{ $supervisor->id }}">Eliminar</button>
+  
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal{{ $supervisor->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title text-black" id="exampleModalLabel" style="color: black">Eliminar Supervisor</h5>
+                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="color: black">
+                      <p>¿Desea eliminar este supervisor?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-outline-danger"
+                      wire:click="delete({{ $supervisor->id }})">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {{-- Fin del Modal --}}
+            </td>
             </td>
              @endcan
             </td>

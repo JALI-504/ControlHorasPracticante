@@ -7,10 +7,6 @@ use Livewire\Component;
 
 class Usuarios extends Component
 {
-
-
- 
-
     public function render()
     {
         return view('livewire.usuarios', [
@@ -23,11 +19,10 @@ class Usuarios extends Component
  
     public function delete($id){
 
-        dd($id);
+        // dd($id);
 
-        $User = User::find($id);
-        
-        $User->delete();
+        $user = User::find($id);       
+        $user->delete();
 
         return redirect()->route('usuario.index');
     }

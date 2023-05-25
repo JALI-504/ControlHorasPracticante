@@ -22,7 +22,7 @@ use App\Http\Livewire\UsuariosCreate;
 Auth::routes();
 
 
-Route::group(['middleware' => 'auth'], function () {
+// Route::group(['middleware' => 'auth'], function () {
 
 
 
@@ -67,6 +67,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('update/{id}', HorasCreate::class)->name('hora.update')->middleware('auth');
     });
 
-});
+// });
 
 

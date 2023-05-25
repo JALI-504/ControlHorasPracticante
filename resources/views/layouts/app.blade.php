@@ -16,22 +16,28 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+   
     {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link href="{{ mix('css/app.css', 'core/public') }}" rel="preload" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
+    {{-- <link href="{{ mix('css/app.css', 'core/public') }}" rel="preload" as="style"
+    onload="this.onload=null;this.rel='stylesheet'"> --}}
 
     <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     
-<script src="{{ mix('js/app.js', 'core/public') }}" defer></script>
+    {{-- <script src="{{ mix('js/app.js', 'core/public') }}" defer></script> --}}
     
 
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        <script src="{{ asset('js/modal.js') }}"></script>
+        <script src="{{ mix('js/app.js') }}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
     
 </head>
 <body>
@@ -88,6 +94,7 @@
                     </ul>
                 </div>
             </div>
+            
         </nav>
 
         <main class="py-4">

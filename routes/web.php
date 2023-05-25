@@ -67,6 +67,12 @@ Auth::routes();
         Route::get('update/{id}', HorasCreate::class)->name('hora.update')->middleware('auth');
     });
 
+    Route::prefix('deptos')->group(function () {
+        Route::get('index', Horas::class)->name('depto.index')->middleware('auth');
+        Route::get('create', HorasCreate::class)->name('depto.create')->middleware('auth');
+        Route::get('update/{id}', HorasCreate::class)->name('depto.update')->middleware('auth');
+    });
+
 // });
 
 

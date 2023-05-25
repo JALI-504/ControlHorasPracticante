@@ -5,6 +5,8 @@ use App\Http\Livewire\Carreras;
 use App\Http\Livewire\CarrerasCraete;
 use App\Http\Livewire\Centros;
 use App\Http\Livewire\CentrosCreate;
+use App\Http\Livewire\Deptos;
+use App\Http\Livewire\DeptosCreate;
 use App\Http\Livewire\Horas;
 use App\Http\Livewire\HorasCreate;
 use App\Http\Livewire\HorasRegistro;
@@ -68,9 +70,9 @@ Auth::routes();
     });
 
     Route::prefix('deptos')->group(function () {
-        Route::get('index', Horas::class)->name('depto.index')->middleware('auth');
-        Route::get('create', HorasCreate::class)->name('depto.create')->middleware('auth');
-        Route::get('update/{id}', HorasCreate::class)->name('depto.update')->middleware('auth');
+        Route::get('index', Deptos::class)->name('depto.index')->middleware('auth');
+        Route::get('create', DeptosCreate::class)->name('depto.create')->middleware('auth');
+        Route::get('update/{id}', DeptosCreate::class)->name('depto.update')->middleware('auth');
     });
 
 // });

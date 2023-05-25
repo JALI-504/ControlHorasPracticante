@@ -316,6 +316,11 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text' => 'Departamentos',
+            'url'  => 'deptos/index',
+            'icon' => 'fas fa-fw fa-users-cog',
+        ],
+        [
             'text' => 'Centro',
             'url'  => 'centros/index',
             'icon' => 'fas fa-fw fa-school',

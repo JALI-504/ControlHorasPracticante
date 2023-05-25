@@ -7,13 +7,12 @@ use Livewire\Component;
 
 class DeptosCreate extends Component
 {
+    
     public $edit = false;
     
-
-    public $Depto;  
-    public $depto="";  
-    public $nombreDepto="";  
-    public $nombreCargo="";
+    public $depto;  
+    public $nombreDepto = "";  
+    public $nombreCargo = "";
 
 
     protected $rules = [
@@ -35,8 +34,8 @@ class DeptosCreate extends Component
 
             $this->depto = Depto::find($id);
 
-            $this->depto= $this->depto->nombreDepto;
-            $this->depto= $this->depto->nombreCargo;
+            $this->nombreDepto= $this->depto->nombreDepto;
+            $this->nombreCargo= $this->depto->nombreCargo;
            
         }
 
@@ -44,7 +43,7 @@ class DeptosCreate extends Component
 
     public function render()
     {
-        return view('livewire.deptos-craete', [
+        return view('livewire.deptos-create', [
             'deptos' => Depto::all()
         ])
         ->extends('adminlte::page')
@@ -57,11 +56,11 @@ class DeptosCreate extends Component
 
         if ($this->edit == true) {
 
-            $this->Depto->nombreDepto = $this->nombreDepto;
-            $this->Depto->nombreCargo = $this->nombreCargo;
+            $this->depto->nombreDepto = $this->nombreDepto;
+            $this->depto->nombreCargo = $this->nombreCargo;
            
 
-            $this->Depto->save();
+            $this->depto->save();
 
         }else {
             $depto = Depto::create([

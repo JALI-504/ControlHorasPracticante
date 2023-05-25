@@ -107,6 +107,25 @@
 
         </div>
 
+        {{-- Select para depto --}}
+
+        <div class="form-group">
+          <label for="depto">Departamento</label>
+          <br>
+          <select class="form-select btn btn-outline-secondary" aria-label="Default select example" wire:model="depto"
+            style="margin-left: 30px; width: 350px">
+            <option selected>Seleccione</option>
+            @foreach ($deptos as $depto)
+            <option value="{{$depto->id}}">{{$depto->depto}}</option>
+            @endforeach
+          </select>
+
+          @error("depto")
+          <small class="text-danger">{{$message}}</small>
+          @enderror
+
+        </div>
+
         <div style="display: flex; gap: 20px;">
           <div style="margin-left: 30px; margin-top: 20px">
             <button type="button" class="btn btn-outline-success" style="width: 150px"

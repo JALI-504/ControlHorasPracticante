@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->string('residencia')->default('');
-            $table->integer('horas_requeridas')->default(0);
+            $table->integer('horas_requeridas')->default(0)->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

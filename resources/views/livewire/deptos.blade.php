@@ -16,7 +16,9 @@
       <thead class=" thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col" style="width: 60%">depto</th>
+            <th scope="col" style="width: 30%">Departamento</th>
+            <th scope="col">Cargo</th>
+            <th scope="col">Encargado</th>
             @can('admin.deptos.depto.update')      
             <th scope="col">Editar</th>
             @endcan
@@ -29,7 +31,9 @@
           @foreach ($deptos as $depto)
           <tr>
             <th scope="row">{{ $loop->index + 1 }}</th>
-            <td>{{$depto->depto}}</td> 
+            <td>{{$depto->nombreDepto}}</td> 
+            <td>{{$depto->nombreCargo}}</td> 
+            <td></td> 
             @can('admin.deptos.depto.update')      
             <td>
               <a class="btn btn-outline-warning mt-1 ml-2" style="ali" 

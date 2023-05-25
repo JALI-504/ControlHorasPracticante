@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Carrera;
+use App\Models\Depto;
 use Livewire\Component;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
@@ -24,6 +25,7 @@ class UsuariosCreate extends Component
     public $residencia = "";
     public $password = "";
     public $carrera = "";
+    public $depto = "";
     public $horas_requeridas = "";
     public $image = "";
 
@@ -31,12 +33,13 @@ class UsuariosCreate extends Component
     {
         return [
             'name' => 'required|min:5|max:50',
-            'cuenta' => 'required|numeric',
+            'cuenta' => 'nullable|numeric',
             'telefono' => 'required|numeric|min:20000000|max:999999999',
             'email' => 'required|email',
             'residencia' => 'required|min:5|max:250',
-            'horas_requeridas' => 'required',
+            'horas_requeridas' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png',
+            'depto' => 'nullable',
             'password' => $this->edit ? '' : 'required|min:8',
         ];
     }
@@ -46,8 +49,8 @@ class UsuariosCreate extends Component
         'name.min' => 'El name no debe ser menor de 8 caracteres.',
         'name.max' => 'El name no debe de ser mayor de 50 caracteres.',
 
-        'cuenta.required' => 'Este campo debe deser oblicatorio.',
-        'cuenta.numeric' => 'Este campo solo acepta numeros',
+        // 'cuenta.required' => 'Este campo debe deser oblicatorio.',
+        // 'cuenta.numeric' => 'Este campo solo acepta numeros',
         // 'cuenta.min' => 'El name no debe ser menor de 11 caracteres.',
         // 'cuenta.max' => 'El name no debe de ser mayor de 11 caracteres.',
 
@@ -62,7 +65,7 @@ class UsuariosCreate extends Component
         'residencia.min' => 'Debe ser menor de 8 caracteres.',
         'residencia.max' => 'Debe de ser mayor de 250 caracteres.',
 
-        'horas_requeridas.required' => 'Este campo debe deser oblicatorio.',
+        // 'horas_requeridas.required' => 'Este campo debe deser oblicatorio.',
 
         'imagen.image' => 'Debe seleccionar una imagen válida en formato JPEG o PNG.',
         'image' => 'nullable|image|max:1024',
@@ -92,6 +95,7 @@ class UsuariosCreate extends Component
             $this->horas_requeridas = $this->user->horas_requeridas;
             $this->password = $this->user->password;
             $this->carrera = $this->user->carrera_id; // Agregar esta línea
+            $this->depto = $this->user->depto_id; // Agregar esta línea
 
         }
     }
@@ -100,7 +104,8 @@ class UsuariosCreate extends Component
     {
         return view('livewire.Usuarios-create', [
             // 'centros' => Centro::all(),
-            'carreras' => Carrera::all()
+            'carreras' => Carrera::all(),
+            'depto' => Depto::all()
         ])
             ->extends('adminlte::page')
             ->section('content');
@@ -120,6 +125,7 @@ class UsuariosCreate extends Component
             $this->user->residencia = $this->residencia;
             $this->user->horas_requeridas = $horasEnMinutos;
             $this->user->carrera_id = $this->carrera;
+            $this->user->depto_id = $this->depto;
             $this->user->password = bcrypt($this->password);
 
             $imageName = null; // Variable para almacenar el nombre de la imagen
@@ -128,6 +134,8 @@ class UsuariosCreate extends Component
                 $imageName = $this->image->store('\public\images');
                 $this->user->image = $imageName; // Asignar el nombre de la imagen al campo 'image'
             }
+
+            dd($horasEnMinutos);
 
             $this->user->save();
         } else {
@@ -141,6 +149,7 @@ class UsuariosCreate extends Component
                 'image' => $this->image ? $this->image->store('\public\images') : null,
                 'password' => bcrypt($this->password),
                 'carrera_id' => $this->carrera,
+                'depto_id' => $this->depto,
             ]);
         }
 

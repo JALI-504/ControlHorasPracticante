@@ -116,7 +116,7 @@
             style="margin-left: 30px; width: 350px">
             <option selected>Seleccione</option>
             @foreach ($deptos as $depto)
-            <option value="{{$depto->id}}">{{$depto->depto}}</option>
+            <option value="{{$depto->id}}">{{$depto->nombreDepto}}</option>
             @endforeach
           </select>
 
@@ -133,7 +133,7 @@
           </div>
 
           <div style="margin-left: 30px; margin-top: 20px">
-            <a type="button" class="btn btn-outline-danger" style="width: 150px" href="{{route('inicio')}}">Cancelar</a>
+            <a type="button" class="btn btn-outline-danger" style="width: 150px" href="{{route('usuario.index')}}">Cancelar</a>
           </div>
         </div>
 

@@ -24,21 +24,24 @@ class UsuariosCreate extends Component
     public $email = "";
     public $residencia = "";
     public $password = "";
-    public $carrera = "";
-    public $depto = "";
-    public $horas_requeridas = "";
+    public $carrera = null;
+    public $depto = null;
+    public $horas_requeridas = null;
     public $image = "";
 
     protected function rules()
     {
         return [
             'name' => 'required|min:5|max:50',
-            'cuenta' => 'nullable|numeric',
+            // 'cuenta' => 'nullable|numeric|unique:users,cuenta,NULL,id',
+            'cuenta' => 'nullable|numeric|unique:users,cuenta,' . $this->user->id,
+
             'telefono' => 'required|numeric|min:20000000|max:999999999',
             'email' => 'required|email',
             'residencia' => 'required|min:5|max:250',
             'horas_requeridas' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png',
+            'carrera' => 'nullable',
             'depto' => 'nullable',
             'password' => $this->edit ? '' : 'required|min:8',
         ];
@@ -94,8 +97,8 @@ class UsuariosCreate extends Component
             $this->residencia = $this->user->residencia;
             $this->horas_requeridas = $this->user->horas_requeridas;
             $this->password = $this->user->password;
-            $this->carrera = $this->user->carrera_id; // Agregar esta línea
-            $this->depto = $this->user->depto_id; // Agregar esta línea
+            $this->carrera = $this->user->carrera_id ?? null;
+            $this->depto = $this->user->depto_id ?? null;
 
         }
     }
@@ -105,21 +108,84 @@ class UsuariosCreate extends Component
         return view('livewire.Usuarios-create', [
             // 'centros' => Centro::all(),
             'carreras' => Carrera::all(),
-            'depto' => Depto::all()
+            'deptos' => Depto::all()
         ])
             ->extends('adminlte::page')
             ->section('content');
     }
 
+    // public function guardar_usuario()
+    // {
+    //     $this->validate();
+
+    //     // $horasEnMinutos = $this->horas_requeridas;
+    //     $horasEnMinutos = $this->horas_requeridas ?? null;
+
+
+    //     if ($this->edit == true) {
+    //         $this->user->name = $this->name;
+
+    //         if ($this->cuenta !== $this->user->cuenta) {
+    //             $this->validate([
+    //                 'cuenta' => 'nullable|numeric|unique:users,cuenta,NULL,id'
+    //             ]);
+    //         }
+
+    //         $this->user->tel = $this->telefono;
+    //         $this->user->email = $this->email;
+    //         $this->user->residencia = $this->residencia;
+    //         $this->user->horas_requeridas = $horasEnMinutos;
+    //         $this->user->carrera_id = $this->carrera;
+    //         $this->user->depto_id = $this->depto;
+    //         $this->user->password = bcrypt($this->password);
+
+    //         $imageName = null; // Variable para almacenar el nombre de la imagen
+
+    //         if ($this->image) {
+    //             $imageName = $this->image->store('\public\images');
+    //             $this->user->image = $imageName; // Asignar el nombre de la imagen al campo 'image'
+    //         }
+
+    //         // dd($horasEnMinutos);
+
+    //         $this->user->save();
+    //     } else {
+    //         $user = User::create([
+    //             'name' => $this->name,
+    //             'cuenta' => $this->cuenta,
+    //             'tel' => $this->telefono,
+    //             'email' => $this->email,
+    //             'residencia' => $this->residencia,
+    //             'horas_requeridas' => $horasEnMinutos,
+    //             'image' => $this->image ? $this->image->store('\public\images') : null,
+    //             'password' => bcrypt($this->password),
+    //             'carrera_id' => $this->carrera,
+    //             'depto_id' => $this->depto,
+    //         ]);
+    //     }
+
+    //     return redirect()->route('inicio');
+    // }
+
     public function guardar_usuario()
     {
         $this->validate();
 
-        $horasEnMinutos = $this->horas_requeridas;
+        // $horasEnMinutos = $this->horas_requeridas;
+        $horasEnMinutos = $this->horas_requeridas ?? null;
+
 
         if ($this->edit == true) {
             $this->user->name = $this->name;
             $this->user->cuenta = $this->cuenta;
+
+            // if ($this->cuenta !== $this->user->cuenta) {
+            //     $this->validate([
+            //         // 'cuenta' => 'nullable|numeric|unique:users,cuenta,NULL,id'
+            //         'cuenta' => 'nullable|numeric|unique:users,cuenta,'
+            //     ]);
+            // }
+
             $this->user->tel = $this->telefono;
             $this->user->email = $this->email;
             $this->user->residencia = $this->residencia;
@@ -135,7 +201,7 @@ class UsuariosCreate extends Component
                 $this->user->image = $imageName; // Asignar el nombre de la imagen al campo 'image'
             }
 
-            dd($horasEnMinutos);
+            // dd($horasEnMinutos);
 
             $this->user->save();
         } else {
@@ -153,6 +219,6 @@ class UsuariosCreate extends Component
             ]);
         }
 
-        return redirect()->route('inicio');
+        return redirect()->route('usuario.index');
     }
 }

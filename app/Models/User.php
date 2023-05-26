@@ -34,6 +34,7 @@ class User extends Authenticatable
         'password',
         'residencia',
         'carrera_id',
+        'depto_id',
         'horas_requeridas',
         'image'
 
@@ -66,6 +67,11 @@ class User extends Authenticatable
     public function carrera()
     {
         return $this->belongsTo(Carrera::class, 'carrera_id', 'id');
+    }
+
+    public function depto()
+    {
+        return $this->belongsTo(Depto::class, 'depto_id', 'id');
     }
 
     public function supervisor()

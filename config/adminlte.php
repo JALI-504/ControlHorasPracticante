@@ -319,21 +319,26 @@ return [
             'text' => 'Departamentos',
             'url'  => 'deptos/index',
             'icon' => 'fas fa-fw fa-users-cog',
+            'can'  => 'admin.deptos.depto.index',
         ],
         [
             'text' => 'Centro',
             'url'  => 'centros/index',
             'icon' => 'fas fa-fw fa-school',
+            'can'  => 'admin.centros.centro.index',
         ],
         [
             'text' => 'Carrera',
             'url'  => 'carreras/index',
             'icon' => 'fas fa-fw fa-folder-open',
+            'can'  => 'admin.carreras.carrera.index',
         ],
         [
             'text' => 'Supervisor',
             'url'  => 'supervisores/index',
             'icon' => 'fas fa-fw fa-user-shield',
+            'can'  => 'admin.supervisores.sup.index',
+
         ],
         [
             'text' => 'Registrar Usuarios',

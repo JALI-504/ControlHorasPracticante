@@ -7,7 +7,7 @@
 
                 @foreach ($users as $user)
                 @if (!$user->hasRole('Admin'))
-                <div class="card" style="margin-top: 5%">
+                <div class="card" style="margin-top: 5%; text-align: center">
                     <div class="card-body">
                         <div class="d-flex flex-row align-items-center">
                             <img src="https://picsum.photos/300/300" alt="Perfil" class="rounded-circle me-3"
@@ -26,24 +26,37 @@
 
                                     <p>Horas Requeridas: {{ $user->horas_requeridas }}</p>
 
-                                        @if($user->horas_requeridas != 0)
-                                            <div class="progress-bar
-                                                @if($user->totalHorasAcumuladas() < ($user->horas_requeridas * 0.35))
-                                                    bg-danger
-                                                    @elseif($user->totalHorasAcumuladas() < ($user->horas_requeridas * 0.70))
-                                                        bg-warning
-                                                    @else
-                                                        bg-success
-                                                @endif" role="progressbar"
-                                                style="width: {{ ($user->totalHorasAcumuladas() / $user->horas_requeridas) * 100 }}%"
-                                                aria-valuemin="0" aria-valuemax="{{ $user->horas_requeridas }}">
-                                                {{ round(($user->totalHorasAcumuladas() / $user->horas_requeridas) * 100) }}%
-                                            </div>
-                                        @else
-                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100">
-                                                0%
-                                            </div>
-                                        @endif
+                                    @if($user->horas_requeridas != 0)
+                                        <div class="progress-bar
+                                                    @if($user->totalHorasAcumuladas() < ($user->horas_requeridas * 0.35))
+                                                        bg-danger
+                                                        @elseif($user->totalHorasAcumuladas() < ($user->horas_requeridas * 0.70))
+                                                            bg-warning
+                                                        @else
+                                                            bg-success
+                                                    @endif" role="progressbar"
+                                            style="width: {{ ($user->totalHorasAcumuladas() / $user->horas_requeridas) * 100 }}%"
+                                            aria-valuemin="0" aria-valuemax="{{ $user->horas_requeridas }}">
+                                            {{ round(($user->totalHorasAcumuladas() / $user->horas_requeridas) * 100) }}%
+                                        </div>
+
+                                        <!-- código aquí para mostrar el botón cuando la barra de progreso llegue al 100% -->
+                                    @if ($user->totalHorasAcumuladas() == $user->horas_requeridas)
+                                    <div>
+                                        <button class="mt-2 btn btn-danger">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V304H176c-35.3 0-64 28.7-64 64V512H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM176 352h32c30.9 0 56 25.1 56 56s-25.1 56-56 56H192v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V448 368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24H192v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H304c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H320v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V432 368z"/></svg> 
+                                            Imprimir Constacia</button>
+                                    </div>
+                                @endif
+                                    
+                                    @else
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 0%"
+                                            aria-valuemin="0" aria-valuemax="100">
+                                            0%
+                                        </div>
+                                    @endif
+ 
+
                                 </div>
                             </div>
                         </div>
@@ -76,8 +89,8 @@
                                         <h6>Horas de Practica Requeridas: {{ $user->horas_requeridas }}</h6>
                                         <h6>Progreso:</h6>
 
-                                            @if($user->horas_requeridas != 0)
-                                                <div class="progress-bar
+                                        @if($user->horas_requeridas != 0)
+                                        <div class="progress-bar
                                                     @if($user->totalHorasAcumuladas() < ($user->horas_requeridas * 0.35))
                                                         bg-danger
                                                         @elseif($user->totalHorasAcumuladas() < ($user->horas_requeridas * 0.70))
@@ -85,15 +98,27 @@
                                                         @else
                                                             bg-success
                                                         @endif" role="progressbar"
-                                                    style="width: {{ ($user->totalHorasAcumuladas() / $user->horas_requeridas) * 100 }}%"
-                                                    aria-valuemin="0" aria-valuemax="{{ $user->horas_requeridas }}">
-                                                    {{ round(($user->totalHorasAcumuladas() / $user->horas_requeridas) * 100) }}%
-                                                </div>
-                                            @else
-                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100">
-                                                    0%
-                                                </div>
-                                            @endif
+                                            style="width: {{ ($user->totalHorasAcumuladas() / $user->horas_requeridas) * 100 }}%"
+                                            aria-valuemin="0" aria-valuemax="{{ $user->horas_requeridas }}">
+                                            {{ round(($user->totalHorasAcumuladas() / $user->horas_requeridas) * 100)
+                                            }}%
+                                        </div>
+
+                                        <!-- código aquí para mostrar el botón cuando la barra de progreso llegue al 100% -->
+                                        @if ($user->horas_requeridas != 0 && ($user->totalHorasAcumuladas() /
+                                        $user->horas_requeridas) == 1)
+                                        <button class="mt-2 btn btn-danger">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V304H176c-35.3 0-64 28.7-64 64V512H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM176 352h32c30.9 0 56 25.1 56 56s-25.1 56-56 56H192v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V448 368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24H192v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H304c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H320v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V432 368z"/></svg> 
+                                            Imprimir Constancia</button>
+                                        @endif
+                                        {{-- fin --}}
+
+                                        @else
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 0%"
+                                            aria-valuemin="0" aria-valuemax="100">
+                                            0%
+                                        </div>
+                                        @endif
 
                                     </div>
                                 </div>

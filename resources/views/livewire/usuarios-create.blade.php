@@ -16,7 +16,9 @@
 
         </div>
 
-        <div class="form-group">
+        <div class="form-group d-flex">
+          <div class="form-group flex-fill">
+
           <label for="cuenta">No. Cuenta</label>
           <input type="text" class="form-control @error(" cuenta") is-invalid @enderror" id="cuenta"
             wire:model.lazy="cuenta">
@@ -27,7 +29,7 @@
 
         </div>
 
-        <div class="form-group">
+        <div class="form-group flex-fill mx-2">
           <label for="telefono">Telefono</label>
           <input type="tel" class="form-control @error(" telefono") is-invalid @enderror" maxlength="8" max="99999999"
             id="telefono" wire:model.lazy="telefono">
@@ -35,6 +37,8 @@
           @error("telefono")
           <small class="text-danger">{{$message}}</small>
           @enderror
+
+        </div>
 
         </div>
         <div class="form-group">

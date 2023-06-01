@@ -13,14 +13,17 @@ class Carrera extends Model
         'user_id',
         'carrera',
         'centro_id',
-        'carrera_id'
+        'carrera_id',
     ];
     
-    public function user(){
+    public function users(){
         return $this->hasMany(User::class, 'user_id', 'id');
     }
     public function centro(){
         return $this->belongsTo(Centro::class, 'centro_id', 'id');
+    }
+    public function supervisor(){
+        return $this->hasOne(Supervisor::class, 'carrera_id', 'id');
     }
     
 }

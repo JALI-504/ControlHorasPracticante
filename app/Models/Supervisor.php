@@ -14,11 +14,11 @@ class Supervisor extends Model
         'nombre_sup',
         'tel',
         'email',
-        // 'centro_id',
+        'centro_id',
         'carrera_id',
     ];
 
-    public function user(){
+    public function users(){
         return $this->hasMany(User::class, 'user_id', 'id');
     }
      public function centro(){

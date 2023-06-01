@@ -22,9 +22,9 @@ class Centro extends Model
     public function carreras(){
          return $this->hasMany(Carrera::class, 'carrera_id', 'id');
     }
-
-    // public function constancia(){
-    //     return $this->belongsTo(Constancia::class, 'constancia_id', 'id');
-    // }
+    
+    public function supervisor(){
+         return $this->belongsTo(Supervisor::class, 'carrera_id', 'id');
+    }
 
 }

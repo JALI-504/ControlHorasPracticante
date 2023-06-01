@@ -39,7 +39,7 @@
             <th scope="row">{{ $loop->index + 1 }}</th>
             <td>{{ $user->name }}</td>
             <td>{{ $primeraFecha }}</td>
-            <td>{{ $primeraFecha }}</td>
+            <td>{{ $ultima_fecha }}</td>
              
             <td>{{ $horaUsuario ? $horaUsuario->total_suma_horas : 'N/A' }}</td>
 

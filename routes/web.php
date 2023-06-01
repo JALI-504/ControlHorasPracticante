@@ -13,6 +13,7 @@ use App\Http\Livewire\HorasRegistro;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Inicio;
+use App\Http\Livewire\PdfGenerator;
 use App\Http\Livewire\Perfil;
 use App\Http\Livewire\SupervisorCreate;
 use App\Http\Livewire\Supervisores;
@@ -74,6 +75,9 @@ Auth::routes();
         Route::get('create', DeptosCreate::class)->name('depto.create')->middleware('auth');
         Route::get('update/{id}', DeptosCreate::class)->name('depto.update')->middleware('auth');
     });
+
+    Route::get('constancias', PdfGenerator::class)->name('constancia')->middleware('auth');
+
 
 // });
 

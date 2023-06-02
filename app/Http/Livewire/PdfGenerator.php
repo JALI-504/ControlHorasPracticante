@@ -2,23 +2,26 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Carrera;
-use App\Models\Centro;
-use App\Models\Depto;
-use App\Models\Hora;
-use App\Models\Supervisor;
+
 use App\Models\User;
 use Livewire\Component;
 use Dompdf\Dompdf;
-use Facade\FlareClient\View;
+use Dompdf\Options;
+
 
 class PdfGenerator extends Component
 {
 
+    
     public function generarPdf()
     {
+       
+
         $view = view('livewire.pdf-generator')->render();
-        $dompdf = new Dompdf();
+    
+        $options = new Options();
+        $dompdf = new Dompdf(array('enable_remote' => true));
+        $dompdf = new Dompdf($options);
         $dompdf->loadHtml($view);
         $dompdf->render();
         $dompdf->stream('constanciaPractica.pdf');

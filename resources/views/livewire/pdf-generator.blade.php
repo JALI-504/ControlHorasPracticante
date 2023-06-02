@@ -2,7 +2,7 @@
 
 <div style=" margin-left: 2.5cm; margin-right: 2.5cm">
 
-    <div style="text-align: center">
+    <div style="text-align: center" wire:ignore>
         <img src="{{ asset('images/logomipymes.png') }}" alt="Logo" style="width: 100px; height: 100px;">
         <h1 style="display: inline-block; vertical-align: middle; margin-left: 10px;">MiPymes Financiero</h1>
     </div>
@@ -24,8 +24,7 @@
             El joven <strong><u> {{ $user->name }},</u></strong> estudiante de la <strong><u> {{
                     $user->carrera->centro->nombre_centro}} </u></strong>, de la carrera de<strong><u> {{
                     $user->carrera->carrera }} </u></strong>, ha cumplido satisfactoriamente con las actividades
-            asignadas para la prestación de la Práctica Profesional, en el proyecto
-            en el departameto de TI, en el periodo comprendido del día <strong><u> {{ $user->horas->first()->fecha }} </u></strong>, al
+            asignadas para la prestación de la Práctica Profesional, en el Departamento de <strong><u>{{ $user->depto->nombreDepto }}</u></strong>, en el periodo comprendido del día <strong><u> {{ $user->horas->first()->fecha }} </u></strong>, al
             día <strong><u> {{ $user->horas->max()->fecha }} </u></strong>, acumulando un total de <strong><u> {{ $user->horas_requeridas }}</u></strong>
         </p>
         <br><br>

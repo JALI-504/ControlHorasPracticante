@@ -7,9 +7,9 @@ use App\Models\Centro;
 use App\Models\Hora;
 use App\Models\Supervisor;
 use App\Models\User;
-use Carbon\Carbon;
 use Livewire\Component;
 use Dompdf\Dompdf;
+use Dompdf\Options;
 use Livewire\WithFileUploads;
 use PDF;
 
@@ -44,20 +44,15 @@ class Inicio extends Component
             ->section('content');
     }
 
-    // public function generarPdf()
-    // {
-    //     $view = view('livewire.pdf-generator')->render();
-    //     $dompdf = new Dompdf();
-    //     $dompdf->loadHtml($view);
-    //     $dompdf->render();
-    //     $dompdf->stream('constanciaPractica.pdf');
-    // }
+
 
     public function generarPdf()
     {
         $view = view('livewire.pdf-generator', ['user' => auth()->user()])->render();
 
-        $dompdf = new Dompdf();
+        $options = new Options();
+        $options->set('isRemoteEnabled', true);
+        $dompdf = new Dompdf($options);
         $dompdf->loadHtml($view);
         $dompdf->setPaper('letter', 'portrait');
         $dompdf->render(); 

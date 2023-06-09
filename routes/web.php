@@ -17,6 +17,7 @@ use App\Http\Livewire\PdfGenerator;
 use App\Http\Livewire\Perfil;
 use App\Http\Livewire\SupervisorCreate;
 use App\Http\Livewire\Supervisores;
+use App\Http\Livewire\UploadFile;
 use App\Http\Livewire\Usuarios;
 use App\Http\Livewire\UsuariosCreate;
 

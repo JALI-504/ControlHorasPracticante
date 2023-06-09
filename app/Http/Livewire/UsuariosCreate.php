@@ -10,11 +10,11 @@ use Livewire\WithFileUploads;
 
 class UsuariosCreate extends Component
 {
+    use WithFileUploads;
+
     public $user;
     public $edit = false;
     public $isAdmin;
-
-    use WithFileUploads;
 
     public $name = "";
     public $cuenta = "";
@@ -125,9 +125,10 @@ class UsuariosCreate extends Component
 
             $imageName = null; // Variable para almacenar el nombre de la imagen
 
+            
             if ($this->image) {
-                $imageName = $this->image->store('\public\images');
-                $this->user->image = $imageName; // Asignar el nombre de la imagen al campo 'image'
+                $imageName = $this->image->store('public/images');
+                $this->user->image = $imageName;
             }
 
             // dd($horasEnMinutos);

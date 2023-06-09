@@ -24,7 +24,7 @@
                                     <p>Centro: Sin asignar</p>
                                     @endif
 
-                                    <p>Horas Requeridas: {{ $user->horas_requeridas }}</p>
+                                    <p>Horas Requeridas: {{ round(($user->totalHorasAcumuladas())) }} de {{ $user->horas_requeridas }}</p>
 
                                     @if($user->horas_requeridas != 0)
                                         <div class="progress-bar
@@ -86,7 +86,7 @@
                                         <h5>{{ auth()->user()->carrera->centro->nombre_centro }}</h5>
                                         @endif
                                         <br>
-                                        <h6>Horas de Practica Requeridas: {{ $user->horas_requeridas }}</h6>
+                                        <h6>Horas de Practica Requeridas: {{ round(($user->totalHorasAcumuladas())) }} de {{ $user->horas_requeridas }}</h6>
                                         <h6>Progreso:</h6>
 
                                         @if($user->horas_requeridas != 0)

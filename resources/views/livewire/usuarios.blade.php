@@ -1,11 +1,31 @@
 <div>
   <div class="d-flex">
-    <div class=" me-4">
-      <h1>Usuarios</h1>
+    <div class="me-4">
+        <h1>Usuarios</h1>
     </div>
 
+    <div class="input-group" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+      <input type="text" id="searchInput" class="form-control input-group-lg" placeholder="Buscar por nombre">
+      <div class="input-group-append">
+          <span class="input-group-text" style="margin-bottom: 8px">
+              <i class="fas fa-search fa-m"></i>
+          </span>
+      </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#searchInput').on('keyup', function() {
+            var value = $(this).val().toLowerCase();
+            $('table tbody tr').filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+    });
+</script>
+  
+</div>
 
   <table class="table table-sm align-middle table-hover" style="align-items: center w-50">
     <thead class=" thead-dark">

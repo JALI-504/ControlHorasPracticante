@@ -14,24 +14,33 @@
       <a class="btn btn-outline-danger mt-2 ml-4" href="{{route('hora.index')}}">Atras</a>
     </div>
   </div>
+  <!-- Resto del código de la vista horas-registro... -->
+
+  {!! $horas->links('livewire.pagination-links') !!}
 
   <table class="table table-sm align-middle table-hover" style="align-items: center w-50">
-    <thead class=" thead-dark">
+    <thead class=" thead-dark" style="text-align: center">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Días</th>
         <th scope="col" style="width: 35%">Nombre</th>
         <th scope="col">Fecha</th>
         <th scope="col">Hora Inicio</th>
         <th scope="col">Hora Final</th>
         <th scope="col">Total Horas</th>
         <th scope="col">Editar</th>
+        @can('Admin')
         <th scope="col">Eliminar</th>
+        @endcan
       </tr>
     </thead>
-    <tbody style="">
-      @foreach ($horas as $hora)
+    <tbody style="text-align: center">
+        @php
+        $index = $horas->total() - ($horas->perPage() * ($horas->currentPage() - 1));
+        @endphp
+        @foreach ($horas as $hora)
       <tr>
-        <th scope="row">{{ $loop->index + 1 }}</th>
+        <th scope="row">{{ $index-- }}</th>
+
         <td>{{ $hora->user->name }}</td>
         <td>{{$hora->fecha}}</td>
         <td>{{$hora->hora_inicio}}</td>

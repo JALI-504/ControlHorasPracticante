@@ -6,6 +6,29 @@
         </div>
       </div>
 
+      <div>
+        <div class="input-group" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; width: 98%">
+          <input type="text" id="searchInput" class="form-control input-group-lg" placeholder="Buscar por nombre">
+          <div class="input-group-append">
+              <span class="input-group-text" style="margin-bottom: 0px">
+                  <i class="fas fa-search fa-m"></i>
+              </span>
+          </div>
+      </div>
+    
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#searchInput').on('keyup', function() {
+                var value = $(this).val().toLowerCase();
+                $('table tbody tr').filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
+    </script>
+      </div>
+
 @php
     use App\Models\Hora;
     $totalHoras = Hora::getTotalSumaHoras();

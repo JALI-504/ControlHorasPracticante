@@ -11,6 +11,17 @@
     </div>
     @endcan
     </div>
+
+    <div>
+      <div class="input-group" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; width: 98%">
+        <input type="text" id="searchInput" class="form-control input-group-lg" placeholder="Buscar por nombre">
+        <div class="input-group-append">
+            <span class="input-group-text" style="margin-bottom: 0px">
+                <i class="fas fa-search fa-m"></i>
+            </span>
+        </div>
+    </div>
+    </div>
       
     <table class="table table-sm align-middle table-hover" style="align-items: center w-50">
       <thead class=" thead-dark">

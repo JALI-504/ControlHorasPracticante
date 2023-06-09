@@ -5,9 +5,13 @@ namespace App\Http\Livewire;
 use App\Models\Hora;
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
+use Illuminate\Database\Query\Builder;
 
 class HorasRegistro extends Component
 {
+    use WithPagination;
+    
     public $total_horas;
     public $total;
     public $user;
@@ -18,18 +22,22 @@ class HorasRegistro extends Component
         $this->user = User::find($id);
     }
 
+
     public function render()
     {
-        return view('livewire.horas-registro', [
-            'horas' => Hora::when($this->user, function ($query, $value) {
-                return $query->where('user_id', $this->user->id);
-            }, function ($query) {
-                return $query;
-            })->get()
-        ])
+        $horas = Hora::query();
+
+        if ($this->user) {
+            $horas->where('user_id', $this->user->id);
+        }
+
+        $horas = $horas->orderBy('fecha', 'desc')->paginate(20);
+
+        return view('livewire.horas-registro', compact('horas'))
             ->extends('adminlte::page')
             ->section('content');
     }
+
 
     public function delete($id)
     {

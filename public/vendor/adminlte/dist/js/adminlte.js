@@ -2466,7 +2466,8 @@
   var JQUERY_NO_CONFLICT$3 = $__default["default"].fn[NAME$3];
   var SELECTOR_TOGGLE_BUTTON = '[data-widget="navbar-search"]';
   var SELECTOR_SEARCH_BLOCK = '.navbar-search-block';
-  var SELECTOR_SEARCH_INPUT = '.form-control';
+  // var SELECTOR_SEARCH_INPUT = '.form-control';
+  var SELECTOR_SEARCH_INPUT = '.input';
   var CLASS_NAME_OPEN$1 = 'navbar-search-open';
   var Default$3 = {
     resetOnClose: true,

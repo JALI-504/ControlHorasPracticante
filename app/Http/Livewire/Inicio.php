@@ -16,19 +16,13 @@ use PDF;
 
 class Inicio extends Component
 {
-
     use WithFileUploads;
-
 
     public function render()
     {
         $user = auth()->user();
         $total_hora = Hora::getTotalSumaHoras()->where('user_id', $user->id);
         $users = User::with('carrera.centro')->get(); // Obtener todos los usuarios con la relación carrera cargada
-
-
-        //  dd($total_hora_id);
-
 
         return view(
             'livewire.inicio',
@@ -44,8 +38,6 @@ class Inicio extends Component
             ->section('content');
     }
 
-
-
     public function generarPdf()
     {
         $view = view('livewire.pdf-generator', ['user' => auth()->user()])->render();
@@ -56,8 +48,6 @@ class Inicio extends Component
         $dompdf->loadHtml($view);
         $dompdf->setPaper('letter', 'portrait');
         $dompdf->render(); 
-
-
         $output = $dompdf->output();
         $filename = 'constanciaPractica.pdf';
 

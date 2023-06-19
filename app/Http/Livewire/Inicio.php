@@ -26,12 +26,14 @@ class Inicio extends Component
 
         return view(
             'livewire.inicio',
-            compact('user', 'total_hora', 'users'),
+            compact('user', 'total_hora'),
             [
                 'supervisors' => Supervisor::all(),
                 'carreras' => Carrera::all(),
                 'centros' => Centro::all(),
                 'horas' => Hora::all(),
+
+                'users' => User::where('estado' , true)->get()
             ]
         )
             ->extends('adminlte::page')

@@ -69,14 +69,24 @@
           </a>
         </td>
         @endcan
-        @can('admin.usuarios.destroy')
+        {{-- @can('admin.usuarios.destroy')
         <td>
           <button class="btn btn-outline-danger mt-1 ml-2" style="ali" data-toggle="modal"
             data-target="#exampleModal{{ $user->id }}">Eliminar</button>
 
-          <x-modal-delete id="exampleModal{{ $user->id }}" wire:click="delete({{ $user->id }})" />
+          <x-modal-delete id="exampleModal{{ $user->id }}" wire:click="estadoUser({{ $user->id }})" />
         </td>
-        @endcan
+        @endcan --}}
+
+        <td>
+          <button class="btn btn-outline-danger mt-1 ml-2" style="ali" data-toggle="modal"
+              data-target="#exampleModal{{ $user->id }}" wire:click="estadoUser({{ $user->id }})">
+              Desactivar
+          </button>
+      
+          <x-modal-delete id="exampleModal{{ $user->id }}" wire:click="estadoUser({{ $user->id }})" />
+      </td>
+      
       </tr>
       @endif
       @endforeach

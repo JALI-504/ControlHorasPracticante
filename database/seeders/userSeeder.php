@@ -20,7 +20,8 @@ class userSeeder extends Seeder
             'cuenta' => '',
             'tel' => '',
             'email' => 'admin@admin.com',
-            'password' => bcrypt('password')
+            'password' => bcrypt('password'),
+            'estado' => true, // O cualquier otro valor que corresponda
         ])->assignRole('Admin');    
     }
 }

@@ -345,12 +345,17 @@ return [
             'url'  => 'usuarios/create',
             'icon' => 'fas fa-fw fa-user',
             'can'  => 'admin.usuarios.usuario.create',
-
         ],
         [
             'text' => 'Usuarios',
             'url'  => 'usuarios/index',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Usuarios Desactivados',
+            'url'  => 'usuarios/desactivados',
+            'icon' => 'fas fa-fw fa-user',
+            'can'  => 'admin.usuarios.usuario.create',
         ],
         [
             'text' => 'Hora',

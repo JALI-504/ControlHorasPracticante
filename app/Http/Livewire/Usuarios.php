@@ -10,20 +10,19 @@ class Usuarios extends Component
     public function render()
     {
         return view('livewire.usuarios', [
-            'users' => User::all()
+            'users' => User::where('estado' , true)->get()
         ])
-        ->extends('adminlte::page')
-        ->section('content');
+            ->extends('adminlte::page')
+            ->section('content');
     }
 
- 
-    public function delete($id){
-
-        // dd($id);
-
-        $user = User::find($id);       
-        $user->delete();
-
+    public function estadoUser($id)
+    {
+        $user = User::find($id);
+        if ($user->estado == true) {
+            $user->estado = false;
+            $user->save();
+        }
         return redirect()->route('usuario.index');
     }
 

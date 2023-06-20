@@ -69,20 +69,34 @@
           </a>
         </td>
         @endcan
-        {{-- @can('admin.usuarios.destroy')
+       
         <td>
-          <button class="btn btn-outline-danger mt-1 ml-2" style="ali" data-toggle="modal"
-            data-target="#exampleModal{{ $user->id }}">Eliminar</button>
 
-          <x-modal-delete id="exampleModal{{ $user->id }}" wire:click="estadoUser({{ $user->id }})" />
-        </td>
-        @endcan --}}
+          <button class="btn btn-outline-danger mt-1 ml-2" style="ali"
+          data-toggle="modal"
+          data-target="#exampleModal{{ $user->id }}">Desactivar</button>
 
-        <td>
-          <button class="btn btn-outline-danger mt-1 ml-2" style="ali" data-toggle="modal"
-              data-target="#exampleModal{{ $user->id }}" wire:click="estadoUser({{ $user->id }})">
-              Desactivar
-          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-black" id="exampleModalLabel" style="color: black">Desactivar Usuario</h5>
+                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="color: black">
+                  <p>¿Desea desactivar este usuario?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-outline-danger"
+                  wire:click="estadoUser({{ $user->id }})">Desactivar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{-- Fin del Modal --}}
       
           <x-modal-delete id="exampleModal{{ $user->id }}" wire:click="estadoUser({{ $user->id }})" />
       </td>

@@ -51,12 +51,33 @@
           <td>{{$user->tel}}</td>
           <td>{{$user->email}}</td>
           <td>
-            <button class="btn btn-outline-primary mt-1 ml-2" style="ali" data-toggle="modal"
-            data-target="#exampleModal{{ $user->id }}" wire:click="activarUsuario({{ $user->id }})">
-            Activar Usuario
-        </button>
+            
+            <button class="btn btn-outline-primary mt-1 ml-2" style="ali"
+            data-toggle="modal"
+            data-target="#exampleModal{{ $user->id }}">Activar</button>
   
-            <x-modal-delete id="exampleModal{{ $user->id }}" wire:click="delete({{ $user->id }})" />
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title text-black" id="exampleModalLabel" style="color: black">Activar Usuario</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="color: black">
+                    <p>¿Desea activar este usuario?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-outline-primary"
+                    wire:click="activarUsuario({{ $user->id }})">Activar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{-- Fin del Modal --}}
+
           </td>
             @can('admin.usuarios.destroy')
           <td>

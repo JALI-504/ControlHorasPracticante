@@ -62,10 +62,8 @@
             <th scope="row">{{ $loop->index + 1 }}</th>
             <td>{{ $user->name }}</td>
             <td>{{ $primeraFecha }}</td>
-            <td>{{ $ultima_fecha }}</td>
-             
-            <td>{{ $horaUsuario ? $horaUsuario->total_suma_horas : 'N/A' }}</td>
-
+            <td>{{ $ultima_fecha }}</td>         
+            <td>{{ round(($user->totalHorasAcumuladas()))}}</td>
             <td>
               <a class="btn btn-outline-primary mt-1 ml-2" style="ali" href="{{ route('hora.create') }}">Asignar</a>
 

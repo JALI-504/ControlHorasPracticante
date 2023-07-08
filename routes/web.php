@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Inicio;
 use App\Http\Livewire\PdfGenerator;
 use App\Http\Livewire\Perfil;
+use App\Http\Livewire\Prueba;
 use App\Http\Livewire\SupervisorCreate;
 use App\Http\Livewire\Supervisores;
 use App\Http\Livewire\UploadFile;
